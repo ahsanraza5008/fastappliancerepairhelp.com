@@ -1,0 +1,10 @@
+[
+  { "name": "Refrigerator Repair", "slug": "refrigerator-repair", "line": "Warm fridge, frost on the back wall, water under the crisper drawers, or a compressor that clicks and quits." },
+  { "name": "Freezer & Ice Maker Repair", "slug": "freezer-ice-maker-repair", "line": "Soft ice cream, frozen-over evaporator coils, and ice makers that jam, leak, or stop filling." },
+  { "name": "Washer Repair", "slug": "washer-repair", "line": "Standing water in the drum, a door that won't unlock, loud spin cycles, and leaks onto the floor." },
+  { "name": "Dryer Repair", "slug": "dryer-repair", "line": "Drums that turn without heat, clothes that take two cycles, squealing belts, and burning smells." },
+  { "name": "Dishwasher Repair", "slug": "dishwasher-repair", "line": "Water left in the tub, dishes still dirty, error codes, and leaks from the door seal." },
+  { "name": "Oven & Range Repair", "slug": "oven-range-repair", "line": "Ovens that won't hold temperature, burners that won't light, and dead bake or broil elements." },
+  { "name": "Microwave Repair", "slug": "microwave-repair", "line": "Runs but doesn't heat, sparks inside, a dead keypad, or a turntable that stopped turning." },
+  { "name": "Garbage Disposal Repair", "slug": "garbage-disposal-repair", "line": "Hums but won't spin, trips the reset button, leaks under the sink, or drains slowly." }
+]

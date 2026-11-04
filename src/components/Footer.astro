@@ -1,0 +1,30 @@
+---
+import business from "../data/business.json";
+const nav = [
+  { name: "Home", url: "/" },
+  { name: "Services", url: "/services/" },
+  { name: "Service Areas", url: "/service-areas/" },
+  { name: "About", url: "/about/" },
+  { name: "Contact", url: "/contact/" },
+];
+---
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">{business.name}</p>
+      <p class="footer-tag">Appliance repair for refrigerators, washers, dryers, dishwashers, ovens and more, with technicians available across the United States.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-nav">
+        {nav.map((item) => <li><a href={item.url}>{item.name}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <p class="footer-call-label">Call any time, day or night</p>
+      <a class="footer-phone" href={`tel:${business.phoneHref}`}>{business.phone}</a>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p>&copy; <span data-year>{new Date().getFullYear()}</span> {business.name}. Independent service network; technician availability varies by location.</p>
+  </div>
+</footer>

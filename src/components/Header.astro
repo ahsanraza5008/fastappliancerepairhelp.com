@@ -1,0 +1,27 @@
+---
+import business from "../data/business.json";
+const nav = [
+  { name: "Home", url: "/" },
+  { name: "Services", url: "/services/" },
+  { name: "Service Areas", url: "/service-areas/" },
+  { name: "About", url: "/about/" },
+  { name: "Contact", url: "/contact/" },
+];
+---
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="/">
+      <span class="logo-dial" aria-hidden="true"></span>
+      <span class="logo-text">{business.name}</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {nav.map((item) => <li><a href={item.url}>{item.name}</a></li>)}
+      </ul>
+    </nav>
+    <a class="header-phone" href={`tel:${business.phoneHref}`}>
+      <span class="header-phone-label">24/7 help</span>
+      <span class="header-phone-number">{business.phone}</span>
+    </a>
+  </div>
+</header>

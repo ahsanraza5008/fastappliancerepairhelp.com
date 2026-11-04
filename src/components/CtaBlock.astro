@@ -1,0 +1,16 @@
+---
+import business from "../data/business.json";
+const { headline, subtext, tone = "light" } = Astro.props;
+---
+<div class={`cta-block cta-${tone}`}>
+  <div class="wrap cta-row">
+    <div class="cta-copy">
+      <p class="cta-headline">{headline}</p>
+      {subtext && <p class="cta-sub">{subtext}</p>}
+    </div>
+    <a href={`tel:${business.phoneHref}`} class="btn-call">
+      <span class="led" aria-hidden="true"></span>
+      <span>Call {business.phone}</span>
+    </a>
+  </div>
+</div>

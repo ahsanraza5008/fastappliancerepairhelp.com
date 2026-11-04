@@ -1,0 +1,30 @@
+{
+  "name": "Appliance Repair Experts",
+  "phone": "(877) 401-0234",
+  "phoneHref": "+18774010234",
+  "domain": "fastappliancerepairhelp.com",
+  "niche": "appliance repair",
+  "primaryKeyword": "appliance repair",
+  "secondaryKeywords": [
+    "refrigerator repair",
+    "washer and dryer repair",
+    "same day appliance repair",
+    "emergency appliance repair",
+    "appliance repair cost"
+  ],
+  "usps": ["24/7 Help", "Same Day Service", "Clean Work", "Upfront Pricing"],
+  "services": [
+    "Refrigerator Repair",
+    "Freezer & Ice Maker Repair",
+    "Washer Repair",
+    "Dryer Repair",
+    "Dishwasher Repair",
+    "Oven & Range Repair",
+    "Microwave Repair",
+    "Garbage Disposal Repair"
+  ],
+  "urlStructure": "D",
+  "urlPattern": "/{stateSlug}/{citySlug}/",
+  "stateSpintaxVariants": 5,
+  "citySpintaxVariants": 28
+}
