@@ -24,8 +24,8 @@
 - [x] Design approved
 - [x] Part 1 complete
 - [x] State template approved
-- [x] City template approved (brands section added after approval; awaiting user's next addition before variants)
-- [ ] All cities built
+- [x] City template approved (brands section added)
+- [x] All cities built (31,032 pages + 404; sitemap 31,032 URLs)
 
 ## Notes
 - No licensing/certification claims. No invented prices on main pages (factors only); city pricing = ranges only.
@@ -39,4 +39,8 @@
 - FAQ data contract: `{ q, a }` where `a` is one string; paragraphs separated by "\n\n". Render with components/Faq.astro, schema with lib/schema.js faqSchema() (same text).
 - cities.json generated from the skill dataset: 30,976 cities, 128 same-name collisions disambiguated with -county suffix, nearbyCities = 4 nearest in state (pre-computed).
 - Spin seeds are salted per key (`${state.code}:${key}`, city: `${stateCode}-${slug}:${key}`) so each element picks its variant independently.
+- City variants: Variant 1 lives in src/data/citySpintax.json; Variants 2..N live in src/data/city-variants/b01..b10 *.json (merged by src/lib/citySpintax.js). Paragraphs/FAQ answers = 28, short headings/CTA lines = 10–12. metaTitle/h1/metaDescription = 4 user-written patterns ([sep] token renders "|").
+- FAQ questions are paired to answers via src/data/faqMaps.json (answer index -> question index). Keep maps in sync if variants are added/removed.
+- Same-name towns in a state get offset H1/title variants (lib/cityContent.js nameRank) so no H1/title is duplicated.
+- Audit after builds: page count 31,032; 0 leftover [tokens]; 0 duplicate H1/titles; FAQ schema = visible text.
 - Stop for user approval at every checkpoint.

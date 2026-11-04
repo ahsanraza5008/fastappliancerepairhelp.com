@@ -17,7 +17,7 @@
     "housingStock": "much of the housing was built from the 1970s oil boom onward, with many homes still running their original or second set of appliances",
     "infrastructure": "rural homes rely on hauled water, private wells or small systems, and long supply runs make it harder to get parts the same day outside Anchorage, Fairbanks and Juneau",
     "seasonalRisk": "deep winter cold can freeze refrigerator water lines and washer supply hoses in poorly heated laundry areas",
-    "waterQuality": "water varies widely; many wells carry iron and manganese that leave orange or black deposits in dishwashers and on washer drum seals",
+    "waterQuality": "widely varying water, with many wells carrying iron and manganese that leave orange or black deposits in dishwashers and on washer drum seals",
     "nicheContext": "Alaska's cold is the biggest appliance factor: frozen supply lines, garage freezers that stop cycling in sub-zero weather, and dryers working overtime all winter.",
     "regionalNotes": "a refrigerator or freezer in an unheated space can actually warm up inside during extreme cold because its thermostat stops calling for cooling"
   },
@@ -39,7 +39,7 @@
     "housingStock": "many brick ranch homes from the 1960s to 1990s, plus newer construction around Little Rock and northwest Arkansas",
     "infrastructure": "rural areas rely on long distribution lines that lose power more often, and many homes use propane for ranges and dryers",
     "seasonalRisk": "spring severe storms and winter ice storms cause outages that leave food at risk and stress electronics when power returns",
-    "waterQuality": "water ranges from soft in the south to moderately hard in the northwest, with some wells carrying iron",
+    "waterQuality": "soft water in the south and moderately hard water in the northwest, with some wells carrying iron",
     "nicheContext": "In Arkansas, summer humidity and storm outages drive many appliance repairs, from refrigerators struggling in the heat to control boards damaged by power surges.",
     "regionalNotes": "propane ranges and dryers are common in rural Arkansas and need technicians familiar with gas conversions and igniter repair"
   },
@@ -105,14 +105,14 @@
     "housingStock": "mostly concrete block homes built after 1970, with many condos and retirement communities",
     "infrastructure": "coastal salt air corrodes appliance coils, hinges and electrical connections faster than inland",
     "seasonalRisk": "hurricanes and summer lightning cause outages and power surges that damage control boards and spoil food",
-    "waterQuality": "hard water from the limestone aquifer coats ice maker valves, dishwasher spray arms and washer inlet screens with scale",
+    "waterQuality": "hard water from the limestone aquifer, which coats ice maker valves, dishwasher spray arms and washer inlet screens with scale",
     "nicheContext": "Florida heat and humidity keep refrigerators and freezers working year-round, and hard water and salt air shorten the life of valves, coils and control boards.",
     "regionalNotes": "garage refrigerators and freezers are very common in Florida and fail more often because garages stay hot most of the year"
   },
   {
     "stateCode": "GA",
     "climate": "humid subtropical, with long, hot summers and mild winters",
-    "soil": "red clay soils, with homes on slabs, crawlspaces and some basements in the north",
+    "soil": "homes sit on red clay, mostly on slabs or crawlspaces, with some basements in the north",
     "housingStock": "many 1970s to 2000s suburban homes around Atlanta, plus older homes in Savannah and smaller towns",
     "infrastructure": "suburban homes often have laundry upstairs, where a failed washer hose can damage ceilings below",
     "seasonalRisk": "summer thunderstorms and the occasional tropical storm bring outages and surges",
@@ -123,18 +123,18 @@
   {
     "stateCode": "HI",
     "climate": "tropical, warm and humid year-round, with salt air across most populated areas",
-    "soil": "volcanic soil, with many homes on slabs or post-and-pier foundations",
+    "soil": "homes are built on volcanic ground, many on slabs or post-and-pier foundations, so laundry is usually on the main floor or in a carport",
     "housingStock": "many older single-wall and post-and-pier homes alongside condos and newer builds",
     "infrastructure": "parts must ship from the mainland, so the right part sometimes takes longer to arrive",
     "seasonalRisk": "tropical storms and heavy rain cause outages, and salt air never lets up",
-    "waterQuality": "generally soft to moderately hard, varying by island and source",
+    "waterQuality": "generally soft to moderately hard water, varying by island and source",
     "nicheContext": "Hawaii's salt air and humidity corrode appliance coils, terminals and control boards faster than almost anywhere else, so many repairs trace back to corrosion.",
     "regionalNotes": "refrigerators and washers in Hawaii often need corroded parts replaced well before the appliance itself is old"
   },
   {
     "stateCode": "ID",
     "climate": "semi-arid, with cold winters, hot dry summers and big temperature swings",
-    "soil": "volcanic and loess soils, with many homes on crawlspaces or basements",
+    "soil": "homes sit on volcanic and loess soils, many over crawlspaces or basements where the laundry often lives",
     "housingStock": "lots of newer construction around Boise and Coeur d'Alene, plus older farm and ranch homes",
     "infrastructure": "rural homes rely on wells and propane, and parts may be farther away outside the Treasure Valley",
     "seasonalRisk": "winter cold can freeze supply lines in garages and crawlspaces",
@@ -178,7 +178,7 @@
   {
     "stateCode": "KS",
     "climate": "continental, with hot, windy summers above 95\u00b0F, cold winters and frequent severe storms",
-    "soil": "expansive clay in many areas, with basements common in the east and slab or crawlspace homes farther west",
+    "soil": "expansive clay is common, basements are typical in the east, and slab or crawlspace homes are more common farther west",
     "housingStock": "mid-century ranch homes in Wichita and Topeka, newer suburbs around Johnson County, and many older farm properties",
     "infrastructure": "rural homes rely on wells, propane and long power lines, and wind-driven outages are frequent on the plains",
     "seasonalRisk": "tornadoes, hail and summer thunderstorms cause outages and surges, especially from April through June",
@@ -189,7 +189,7 @@
   {
     "stateCode": "KY",
     "climate": "humid subtropical, with hot, humid summers and winters that swing between mild days and ice storms",
-    "soil": "limestone karst in much of the state, with basements in older Louisville and Lexington homes and crawlspaces elsewhere",
+    "soil": "much of the state sits on limestone karst, older Louisville and Lexington homes have basements, and crawlspaces are common elsewhere",
     "housingStock": "older brick homes in Louisville, Lexington and river towns, plus rural houses and newer subdivisions",
     "infrastructure": "rural areas have long power lines and many homes keep a chest freezer, while older city homes have tight basement stairs",
     "seasonalRisk": "winter ice storms and spring flooding cause long outages and occasional water damage in basement laundry rooms",
@@ -211,7 +211,7 @@
   {
     "stateCode": "ME",
     "climate": "humid continental, with long, snowy winters, short summers and a damp coastal climate",
-    "soil": "rocky glacial soil, with most homes on fieldstone or block basements or crawlspaces",
+    "soil": "most homes have fieldstone or block basements or crawlspaces, and the laundry is often below grade",
     "housingStock": "some of the oldest housing in the country, including 1800s farmhouses, coastal capes and seasonal camps",
     "infrastructure": "private wells serve a large share of homes, and rural service areas are spread out along long roads",
     "seasonalRisk": "nor'easters and ice storms cause long outages, and cold can freeze supply lines to washers and refrigerators",
@@ -222,7 +222,7 @@
   {
     "stateCode": "MD",
     "climate": "humid subtropical to continental, with hot, muggy summers and cold, sometimes icy winters",
-    "soil": "coastal plain in the east and rolling Piedmont to the west, with basements common in older and suburban homes",
+    "soil": "homes range from the coastal plain to the Piedmont, and basements are common in older and suburban houses",
     "housingStock": "Baltimore row houses, older Annapolis homes, and large suburbs and townhome communities around Washington, D.C.",
     "infrastructure": "row houses have tight kitchens and narrow basement stairs, and townhomes often have stacked washer-dryer units in a closet",
     "seasonalRisk": "summer thunderstorms, tropical storms and nor'easters cause outages",
@@ -255,7 +255,7 @@
   {
     "stateCode": "MN",
     "climate": "humid continental, with very cold winters that often reach -20\u00b0F and warm, humid summers",
-    "soil": "glacial soils, with nearly all homes on full basements",
+    "soil": "nearly every home has a full basement, and that's usually where the washer and dryer sit",
     "housingStock": "older homes in Minneapolis, St. Paul and Duluth and newer suburban construction across the metro",
     "infrastructure": "basement laundry rooms are standard, and many homes outside the metro rely on wells",
     "seasonalRisk": "deep winter cold can freeze supply lines and stall garage freezers, and summer storms bring outages",
@@ -266,7 +266,7 @@
   {
     "stateCode": "MS",
     "climate": "humid subtropical, hot and humid much of the year with short, mild winters",
-    "soil": "clay soils, with most homes on slabs or crawlspaces",
+    "soil": "most homes sit on clay soils over slabs or crawlspaces, so laundry is usually on the main floor or in the garage",
     "housingStock": "many older homes and rural properties, alongside newer subdivisions around Jackson, the Gulf Coast and DeSoto County",
     "infrastructure": "rural areas rely on long power lines and often propane for ranges and dryers",
     "seasonalRisk": "hurricanes on the coast, spring tornadoes and summer thunderstorms cause outages and surges",
@@ -277,7 +277,7 @@
   {
     "stateCode": "MO",
     "climate": "humid continental, with hot, humid summers and cold winters with ice storms",
-    "soil": "varied soils, with basements common in St. Louis, Kansas City and older towns",
+    "soil": "basements are common in St. Louis, Kansas City and older towns, and many hold the laundry",
     "housingStock": "older brick homes in St. Louis and Kansas City and newer suburbs around both metros and Springfield",
     "infrastructure": "basement laundry rooms are common, and older homes often have narrow basement stairs",
     "seasonalRisk": "tornadoes, ice storms and summer heat waves cause outages",
@@ -288,7 +288,7 @@
   {
     "stateCode": "MT",
     "climate": "continental and semi-arid, with cold, dry winters, warm summers and big swings between day and night",
-    "soil": "varied soils, with basements in most towns and crawlspaces in older rural homes",
+    "soil": "most town homes have basements, while older rural homes often sit over crawlspaces",
     "housingStock": "older ranch and farm homes, and newer construction around Bozeman, Missoula and Billings",
     "infrastructure": "rural homes rely on wells and propane, distances to parts suppliers are long, and many towns sit above 3,000 feet",
     "seasonalRisk": "winter cold strains garage freezers and supply lines, and summer wildfire smoke can clog dryer and refrigerator airflow",
@@ -310,7 +310,7 @@
   {
     "stateCode": "NV",
     "climate": "hot desert in Las Vegas, with summer highs above 110\u00b0F, and cooler high desert in Reno and Carson City",
-    "soil": "desert soils, with nearly every home on a slab",
+    "soil": "nearly every home is built on a slab, with laundry off the garage or in a hall closet",
     "housingStock": "mostly post-1980 stucco homes, with huge master-planned communities around Las Vegas and Henderson",
     "infrastructure": "laundry is usually off the garage or in an interior closet, and many garages hold a second refrigerator",
     "seasonalRisk": "extreme summer heat pushes refrigerators and garage freezers past their limits and strains the grid",
@@ -321,7 +321,7 @@
   {
     "stateCode": "NH",
     "climate": "humid continental, with cold, snowy winters, mild summers and a short fall season",
-    "soil": "rocky glacial soil, with homes on full basements",
+    "soil": "most homes have full basements, and the washer and dryer usually live down there",
     "housingStock": "older colonial and farmhouse-style homes, mill-town housing, and newer construction in the southern tier near Boston",
     "infrastructure": "private wells are common, and many rural homes use propane for ranges and dryers",
     "seasonalRisk": "winter storms and ice cause long outages, especially in the Lakes Region and North Country",
@@ -332,7 +332,7 @@
   {
     "stateCode": "NJ",
     "climate": "humid continental in the north and humid subtropical in the south, with hot summers and cold, snowy winters",
-    "soil": "varied soils, with basements in most northern and central homes and slabs near the shore",
+    "soil": "most northern and central homes have basements, while homes near the shore are often on slabs",
     "housingStock": "dense older housing in the north, Cape Cods and colonials in the suburbs, and shore homes along the coast",
     "infrastructure": "older homes have compact kitchens and basement laundry, and shore homes face constant salt air",
     "seasonalRisk": "nor'easters and coastal storms cause outages and flooding",
@@ -343,7 +343,7 @@
   {
     "stateCode": "NM",
     "climate": "high desert, with hot days, cool nights, very dry air and summer monsoon storms",
-    "soil": "desert soils, with homes on slabs",
+    "soil": "homes are built on slabs, so laundry is usually in a utility room or off the garage",
     "housingStock": "adobe and stucco homes, many built from the 1960s onward, and newer subdivisions around Albuquerque and Las Cruces",
     "infrastructure": "many homes use natural gas or propane, and most cities sit above 4,000 feet, which affects gas burner performance",
     "seasonalRisk": "summer monsoon storms bring lightning and outages",
@@ -354,7 +354,7 @@
   {
     "stateCode": "NY",
     "climate": "humid continental, with cold winters, warm summers, and heavy lake-effect snow upstate",
-    "soil": "varied soils, with basements in most houses and laundry rooms in apartment building basements in the city",
+    "soil": "most houses have basements, and city apartment buildings usually put shared laundry in the basement",
     "housingStock": "very old housing stock, from pre-war apartments and brownstones to upstate farmhouses and Long Island suburbs",
     "infrastructure": "apartment kitchens and laundry rooms are tight, building rules can limit access hours, and many upstate homes use wells",
     "seasonalRisk": "winter storms and summer heat waves cause outages",
@@ -365,7 +365,7 @@
   {
     "stateCode": "NC",
     "climate": "humid subtropical, with hot, humid summers and mild winters with occasional ice",
-    "soil": "red clay in the Piedmont, sandy soil on the coastal plain, and rocky ground in the mountains",
+    "soil": "homes sit on red clay in the Piedmont, sandy soil near the coast and rocky ground in the mountains, with a mix of slabs, crawlspaces and basements",
     "housingStock": "many 1970s to 2000s suburban homes and rapid new construction around Charlotte, Raleigh and the Triad",
     "infrastructure": "second-floor laundry rooms are common in newer homes, and many rural homes rely on wells",
     "seasonalRisk": "hurricanes on the coast and ice storms inland cause outages",
@@ -387,7 +387,7 @@
   {
     "stateCode": "OH",
     "climate": "humid continental, with cold, cloudy winters, lake-effect snow in the northeast, and warm, humid summers",
-    "soil": "glacial soils in the north and hill country in the southeast, with most homes on basements",
+    "soil": "most homes have basements, from the glacial plains in the north to the hill country in the southeast",
     "housingStock": "many older homes in Cleveland, Cincinnati, Columbus, Toledo and Dayton, and large newer suburbs",
     "infrastructure": "basement laundry rooms are standard, and older homes often have long dryer vent runs",
     "seasonalRisk": "summer storms and winter ice cause outages",
@@ -398,7 +398,7 @@
   {
     "stateCode": "OK",
     "climate": "humid subtropical to semi-arid, with hot summers, windy springs and variable winters with ice",
-    "soil": "red clay soils, with homes on slabs",
+    "soil": "homes are built on slabs over red clay, so laundry rooms are on the main floor or off the garage",
     "housingStock": "many 1960s to 1990s homes and newer suburbs around Oklahoma City and Tulsa",
     "infrastructure": "laundry is usually in a utility room or off the garage",
     "seasonalRisk": "tornadoes, hail and ice storms cause outages and surges",
@@ -409,7 +409,7 @@
   {
     "stateCode": "OR",
     "climate": "mild and wet west of the Cascades, and dry with hot summers and cold winters to the east",
-    "soil": "varied soils, with homes on crawlspaces in the Willamette Valley and basements in some older Portland homes",
+    "soil": "Willamette Valley homes usually sit over crawlspaces, while some older Portland homes have basements",
     "housingStock": "older craftsman homes in Portland and newer suburbs around Salem, Eugene and Bend",
     "infrastructure": "crawlspace homes can have damp laundry areas, and some areas face wildfire-season power shutoffs",
     "seasonalRisk": "winter ice storms and summer wildfire shutoffs cause outages",
@@ -442,7 +442,7 @@
   {
     "stateCode": "SC",
     "climate": "humid subtropical, with long, hot summers and short, mild winters",
-    "soil": "sandy coastal soils and Piedmont clay, with homes on slabs or crawlspaces",
+    "soil": "homes sit on slabs or crawlspaces over sandy coastal soil or Piedmont clay",
     "housingStock": "many 1970s to 2000s homes and rapid new construction around Charleston, Greenville, Columbia and Myrtle Beach",
     "infrastructure": "laundry is often in a utility room or upstairs in newer homes, and coastal homes face salt air",
     "seasonalRisk": "hurricanes and summer thunderstorms cause outages and surges",
@@ -464,7 +464,7 @@
   {
     "stateCode": "TN",
     "climate": "humid subtropical, with hot, humid summers and cool winters with occasional ice",
-    "soil": "limestone and clay soils, with basements in hilly areas and slabs or crawlspaces elsewhere",
+    "soil": "homes in hilly areas often have basements, while slabs and crawlspaces are common elsewhere",
     "housingStock": "many older homes in Memphis, Knoxville and Chattanooga, and rapid new construction around Nashville",
     "infrastructure": "newer homes often have upstairs laundry rooms",
     "seasonalRisk": "tornadoes, ice storms and summer heat cause outages",
@@ -475,7 +475,7 @@
   {
     "stateCode": "TX",
     "climate": "hot and humid in the east, hot and dry in the west, with summers above 95\u00b0F across most of the state",
-    "soil": "expansive clay soils, with homes built on slabs",
+    "soil": "homes are built on slabs over expansive clay, with laundry off the garage or kitchen",
     "housingStock": "many 1970s to 2000s homes and rapid new construction around Houston, Dallas-Fort Worth, Austin and San Antonio",
     "infrastructure": "laundry rooms are usually off the garage or kitchen, and garage refrigerators are very common",
     "seasonalRisk": "summer heat, Gulf hurricanes and occasional hard freezes cause outages",
@@ -486,7 +486,7 @@
   {
     "stateCode": "UT",
     "climate": "semi-arid, with cold, snowy winters, hot, dry summers and winter inversions",
-    "soil": "varied soils, with basements common along the Wasatch Front",
+    "soil": "basements are common along the Wasatch Front, and many hold the laundry room",
     "housingStock": "lots of newer construction along the Wasatch Front and older homes in Salt Lake City and Ogden",
     "infrastructure": "natural gas is common for ranges and dryers, and most cities sit above 4,000 feet",
     "seasonalRisk": "winter cold snaps and inversions strain appliances, and summer heat taxes garage freezers",
@@ -497,7 +497,7 @@
   {
     "stateCode": "VT",
     "climate": "humid continental, with long, cold, snowy winters and short summers",
-    "soil": "rocky soils, with homes on basements",
+    "soil": "most homes have basements over rocky soil, and the laundry is often down there",
     "housingStock": "very old farmhouses, village homes and seasonal homes",
     "infrastructure": "private wells and propane are common, and roads are long and winding",
     "seasonalRisk": "winter storms cause long outages",
@@ -508,7 +508,7 @@
   {
     "stateCode": "VA",
     "climate": "humid subtropical, with hot summers and mild to cold winters",
-    "soil": "varied soils, with basements in Northern Virginia and crawlspaces or slabs in the Tidewater",
+    "soil": "Northern Virginia homes usually have basements, while crawlspaces and slabs are common in the Tidewater",
     "housingStock": "older homes in Richmond and Norfolk, Colonial-era towns, and large suburbs in Northern Virginia",
     "infrastructure": "townhomes often have stacked or closet laundry, and coastal homes face salt air",
     "seasonalRisk": "hurricanes, nor'easters and summer storms cause outages",
@@ -519,7 +519,7 @@
   {
     "stateCode": "WA",
     "climate": "mild and wet west of the Cascades, dry with hot summers and cold winters to the east",
-    "soil": "glacial soils in the west, with homes on crawlspaces and basements",
+    "soil": "homes west of the Cascades usually sit over crawlspaces or basements on glacial soils",
     "housingStock": "older homes in Seattle and Tacoma and newer suburbs around Bellevue, Everett and Spokane",
     "infrastructure": "damp crawlspaces and garages can affect laundry areas",
     "seasonalRisk": "winter windstorms and ice cause outages",
@@ -530,7 +530,7 @@
   {
     "stateCode": "WV",
     "climate": "humid continental, with cold winters, warm summers and rapid weather changes in the mountains",
-    "soil": "hilly terrain, with homes on basements and crawlspaces",
+    "soil": "hilly terrain means many homes have basements or crawlspaces built into slopes",
     "housingStock": "many older homes in small towns and hollows, and newer construction near Charleston and Morgantown",
     "infrastructure": "rural homes rely on wells and long power lines",
     "seasonalRisk": "winter storms and summer storms cause outages",
@@ -541,7 +541,7 @@
   {
     "stateCode": "WI",
     "climate": "humid continental, with cold, snowy winters and warm summers",
-    "soil": "glacial soils, with homes on basements",
+    "soil": "most homes have basements, and that's where the washer and dryer usually sit",
     "housingStock": "older homes in Milwaukee and Madison, and farm properties across the state",
     "infrastructure": "basement laundry rooms and well water are common",
     "seasonalRisk": "winter cold and summer storms cause outages",
@@ -552,7 +552,7 @@
   {
     "stateCode": "WY",
     "climate": "semi-arid, with cold, windy winters and mild summers",
-    "soil": "high plains soils, with homes on basements and crawlspaces",
+    "soil": "homes have basements or crawlspaces on high plains soils, and many laundry rooms are below grade",
     "housingStock": "older ranch homes and newer construction in Cheyenne, Casper and Gillette",
     "infrastructure": "rural homes rely on wells and propane, and most towns sit above 4,000 feet",
     "seasonalRisk": "winter cold and high winds cause outages",

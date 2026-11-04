@@ -4,3 +4,5 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # 31,000+ pages: give the build enough memory
+  NODE_OPTIONS = "--max-old-space-size=8192"

@@ -4,7 +4,7 @@ import { cities } from "../lib/cities.js";
 import { statePath } from "../lib/paths.js";
 
 // Part 2 flips INCLUDE_CITIES to true once city pages exist, so the sitemap never lists 404s.
-const INCLUDE_CITIES = false;
+const INCLUDE_CITIES = true;
 
 export function GET() {
   const base = `https://${business.domain}`;
