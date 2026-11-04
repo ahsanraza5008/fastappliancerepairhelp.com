@@ -1,6 +1,6 @@
 // Resolves a city's spintax, meta and FAQs ONCE. The route uses it for <head> + schema,
 // CityPage uses the same object for the body, so FAQ schema text = visible FAQ text.
-import citySpintax from "../data/citySpintax.json";
+import citySpintax from "./citySpintax.js";
 import stateContexts from "../data/states-context.json";
 import { spin } from "./spin.js";
 
@@ -15,8 +15,6 @@ export function countyLabel(city) {
   if (city.stateCode === "VA" && c === city.city) return `the City of ${c}`;
   return `${c} County`;
 }
-
-const TITLE_SUFFIXES = ["Same Day Service", "24/7 Help", "Same Day"];
 
 export function cityContent(city) {
   const stateCtx = ctxByState.get(city.stateCode) || {};
@@ -44,11 +42,12 @@ export function cityContent(city) {
 
   const faqs = [1, 2, 3, 4, 5, 6].map((n) => ({ q: sp(`faq_${n}_question`), a: sp(`faq_${n}_answer`) }));
 
-  // Meta title: "Appliance Repair Naples FL | Same Day Service" — hard 60-char limit, no comma.
-  const head = `Appliance Repair ${city.city} ${city.stateCode}`;
-  const preferred = sp("metaTitleSuffix");
-  const suffix = [preferred, ...TITLE_SUFFIXES].find((s) => `${head} | ${s}`.length <= 60);
-  const metaTitle = suffix ? `${head} | ${suffix}` : head.slice(0, 60);
+  // Meta title: 4 user-approved patterns. Hard 60-char limit: fall back to a shorter ending, then none.
+  let metaTitle = sp("metaTitle");
+  if (metaTitle.length > 60) {
+    const head = `Appliance Repair ${city.city}, ${city.stateCode}`;
+    metaTitle = [`${head} | Call Now`, `${head} | Same Day`, head].find((t) => t.length <= 60) ?? head;
+  }
 
   return { stateCtx, sp, faqs, metaTitle, metaDescription: sp("metaDescription"), tokens };
 }
