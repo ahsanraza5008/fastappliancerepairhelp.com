@@ -30,5 +30,8 @@
 ## Notes
 - No licensing/certification claims. No invented prices on main pages (factors only); city pricing = ranges only.
 - Lead-gen model: never imply local offices. "Upfront Pricing" = price confirmed before work starts.
-- Design: enamel white / brushed steel surfaces, deep badge blue (primary), signal red (call buttons, indicator lights). Archivo (width axis) for all type.
+- Design v2 (v1 rejected as too similar to the user's other sites): bright laundry-room daylight. White + cool mist surfaces, cobalt primary (all call buttons), "ready" green for checks. Bricolage Grotesque headings, Instrument Sans body. Rounded appliance tiles, symptom table, dashed call-outs, floating mobile call bar.
+- Write as the repair company ("we", "our technicians"). Lead-gen "we connect you with local technicians / independent network" wording is ONLY allowed on the Service Areas page, nowhere else.
+- Content style must differ from the user's other builds: not the same copy, not the same section styling; basic section order stays.
+- Windows local dev: if Astro fails with "Cannot find native binding" (satteri), run `npm.cmd install @bruits/satteri-wasm32-wasi@0.10.5 --force --no-save`.
 - Stop for user approval at every checkpoint.

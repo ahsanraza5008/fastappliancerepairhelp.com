@@ -1,0 +1,17 @@
+---
+// Simple line icons for appliances. Stroke uses currentColor so color comes from CSS tokens.
+const { name, size = 28 } = Astro.props;
+const paths = {
+  "refrigerator-repair": '<rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M5 9.5h14M8 5.5v2M8 12.5v3"/>',
+  "freezer-ice-maker-repair": '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12L4 7.5M12 12v9"/>',
+  "washer-repair": '<rect x="4" y="2.5" width="16" height="19" rx="2"/><circle cx="12" cy="13.5" r="5"/><path d="M4 6.5h16M7 4.5h2"/>',
+  "dryer-repair": '<rect x="4" y="2.5" width="16" height="19" rx="2"/><circle cx="12" cy="13.5" r="5"/><path d="M4 6.5h16M15 4.5h2M9.5 14a2.5 2.5 0 0 1 5 0"/>',
+  "dishwasher-repair": '<rect x="4" y="2.5" width="16" height="19" rx="2"/><path d="M4 7h16M9 4.8h6M7 11h10M7 14h10M7 17h10"/>',
+  "oven-range-repair": '<rect x="3.5" y="2.5" width="17" height="19" rx="2"/><path d="M3.5 7.5h17"/><rect x="7" y="10.5" width="10" height="7" rx="1"/><path d="M7 5h.01M10 5h.01M14 5h.01M17 5h.01"/>',
+  "microwave-repair": '<rect x="2.5" y="5" width="19" height="14" rx="2"/><rect x="5" y="7.5" width="10" height="9" rx="1"/><path d="M18 8.5v.01M18 11.5v.01M18 14.5v2"/>',
+  "garbage-disposal-repair": '<path d="M3.5 8h17l-1.6 6.2a3 3 0 0 1-2.9 2.3H8a3 3 0 0 1-2.9-2.3z"/><path d="M12 16.5V21M9 21h6M10 11.5l4 1"/>',
+  "check": '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  "phone": '<path d="M6.6 3.5h2.8l1.4 4.2-2 1.5a12 12 0 0 0 6 6l1.5-2 4.2 1.4v2.8a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/>',
+};
+---
+<svg class="icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={paths[name] || ""} />

@@ -17,6 +17,7 @@ document.querySelectorAll(".site-nav a").forEach((a) => {
 // Mobile call bar: hidden while the hero's call button is on screen, shown after.
 const bar = document.querySelector(".callbar");
 const trigger = document.querySelector("[data-callbar-trigger]");
+if (bar && (!trigger || !("IntersectionObserver" in window))) bar.classList.remove("is-hidden");
 if (bar && trigger && "IntersectionObserver" in window) {
   new IntersectionObserver(([entry]) => {
     bar.classList.toggle("is-hidden", entry.isIntersecting || entry.boundingClientRect.top > 0);

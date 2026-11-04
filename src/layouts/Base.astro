@@ -21,7 +21,7 @@ const canonical = new URL(Astro.url.pathname, `https://${business.domain}`).href
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" />
   {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 </head>
 <body>
@@ -29,9 +29,8 @@ const canonical = new URL(Astro.url.pathname, `https://${business.domain}`).href
   <Header />
   <main id="main"><slot /></main>
   <Footer />
-  <a class="callbar" href={`tel:${business.phoneHref}`}>
-    <span class="led" aria-hidden="true"></span>
-    <span>Call {business.phone}</span>
+  <a class="callbar is-hidden" href={`tel:${business.phoneHref}`}>
+    <span>Tap to call {business.phone}</span>
   </a>
   <script is:inline src="/assets/js/main.js" defer></script>
 </body>

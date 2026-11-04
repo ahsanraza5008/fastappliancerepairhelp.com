@@ -1,74 +1,75 @@
 ---
 import Base from "../layouts/Base.astro";
 import CtaBlock from "../components/CtaBlock.astro";
+import Icon from "../components/Icon.astro";
 import business from "../data/business.json";
 import services from "../data/services.json";
 import states from "../data/states.json";
 import { statePath } from "../lib/paths.js";
 
-const metaTitle = "Appliance Repair Nationwide | Same Day Service";
+const metaTitle = "Appliance Repair Nationwide | Same Day, 24/7 Help";
 const metaDescription =
-  "Appliance repair for refrigerators, washers, dryers, ovens and dishwashers across the US. Same day service, upfront pricing and 24/7 help. Call now.";
+  "Same day appliance repair for refrigerators, washers, dryers, dishwashers and ovens nationwide. Upfront pricing, clean work and 24/7 help. Call today.";
 
 const proof = [
-  { label: "24/7 help", desc: "The line is answered nights, weekends and holidays." },
-  { label: "Same day service", desc: "Morning calls usually get an afternoon visit." },
-  { label: "Upfront pricing", desc: "You hear the price and approve it before any work starts." },
-  { label: "Clean work", desc: "Floors covered, old parts hauled out, kitchen left as found." },
+  { label: "24/7 help", desc: "Nights, weekends and holidays." },
+  { label: "Same day service", desc: "Call in the morning, fixed by evening in most areas." },
+  { label: "Upfront pricing", desc: "One price for parts and labor, approved by you first." },
+  { label: "Clean work", desc: "Floors covered, old parts and packaging taken away." },
 ];
 
 const symptoms = [
-  { q: "The fridge is running but nothing is cold.", p: "Usually a stalled evaporator fan, iced-over coils, a failed defrost part or a start relay. Food is at risk after about four hours, so this is the call we get most." },
-  { q: "The washer stopped with water still in it.", p: "Often a clogged drain pump or a failed lid switch." },
-  { q: "The dryer turns but the clothes stay damp.", p: "Heating element, thermal fuse, or a blocked vent." },
-  { q: "There's water sitting in the bottom of the dishwasher.", p: "Filter, drain pump, or a kinked drain hose." },
-  { q: "The oven never reaches the temperature I set.", p: "Bake element, igniter, or temperature sensor." },
-  { q: "The ice maker quit and the freezer feels soft.", p: "Water valve, frozen fill tube, or a defrost fault." },
-  { q: "The microwave runs but the food comes out cold.", p: "Magnetron, diode or a door switch. Not a DIY repair." },
-  { q: "The disposal hums but won't turn.", p: "A jammed flywheel or a worn motor." },
+  { s: "The fridge is running but nothing inside is cold", c: "Usually the evaporator fan, iced-over coils, a defrost failure or the start relay.", tag: "Most common call. Food is at risk after about 4 hours." },
+  { s: "The washer stopped with water still in the drum", c: "A clogged drain pump, a failed lid lock, or a kinked drain hose." },
+  { s: "The dryer spins but the clothes stay damp", c: "Heating element, thermal fuse, or a lint-packed vent line." },
+  { s: "There's dirty water in the bottom of the dishwasher", c: "A clogged filter, the drain pump, or a stuck check valve." },
+  { s: "The oven never gets up to temperature", c: "Bake element, a weak gas igniter, or the temperature sensor." },
+  { s: "The ice maker stopped and the freezer feels soft", c: "Frozen fill tube, water inlet valve, or a defrost problem." },
+  { s: "The microwave runs but the food comes out cold", c: "Magnetron, high-voltage diode, or a door switch. Not a safe DIY job." },
+  { s: "The disposal hums but won't turn", c: "A jammed flywheel or a motor near the end of its life." },
 ];
 
 const faqs = [
   {
-    q: "How fast can an appliance repair technician get to me?",
+    q: "How soon can a technician get to my home?",
     a: [
-      "In most areas, calling before early afternoon gives you the best chance of a same day visit.",
-      "When you call, we check which technicians near your ZIP code have an opening and give you the earliest arrival window. Busy seasons, like a heat wave when refrigerators fail all over town, can push that window to the next morning, and we tell you so on the call.",
+      "Most same day appointments go to people who call before early afternoon.",
+      "We look at the schedule for your area while you're on the phone and give you an arrival window right then. During heat waves, when refrigerators fail all at once, the first slot can slide to the next morning, and you'll know that before you hang up.",
     ],
   },
   {
-    q: "How much does appliance repair cost?",
+    q: "How much will my appliance repair cost?",
     a: [
-      "The cost is a diagnostic visit plus the part and labor for the fix, and you approve that total before work begins.",
-      "The biggest factors are the part itself (a dryer thermal fuse is cheap, a refrigerator compressor is not), the brand, and whether the part is in stock or has to be ordered. If the repair costs more than the appliance is worth, the technician will say so.",
+      "You pay for the diagnosis plus the part and labor for the fix, and you approve the full amount before any work starts.",
+      "What moves the price most is the part. A dryer thermal fuse is inexpensive; a refrigerator compressor is not. Brand and whether the part is on hand also matter. When a repair would cost more than the appliance is worth, the technician tells you.",
     ],
   },
   {
-    q: "Should I repair my appliance or replace it?",
+    q: "Is it worth fixing, or should I buy a new one?",
     a: [
-      "A common rule: if the repair costs less than half the price of a comparable new appliance and the unit is under about ten years old, repairing usually makes sense.",
-      "Sealed-system refrigerator failures and cracked washer tubs on older units are the usual cases where replacing wins. You get the repair price first, so you can decide with real numbers.",
+      "If the repair costs less than half the price of a comparable new unit and the appliance is under about ten years old, fixing it usually pays off.",
+      "Sealed-system failures on older refrigerators and cracked washer tubs are the typical cases where replacing makes more sense. Because you get the price first, you decide with real numbers in hand.",
     ],
   },
   {
-    q: "Which appliance brands do your technicians work on?",
+    q: "Do you work on my brand?",
     a: [
-      "Most major household brands, including Whirlpool, GE, Samsung, LG, Frigidaire, Maytag, KitchenAid, Bosch and Electrolux.",
-      "Tell us the brand and model number when you call so the technician can check part availability before arriving. High-end built-in brands may need a specialist, and we will tell you if that applies.",
+      "Yes for most household brands, including Whirlpool, GE, Samsung, LG, Frigidaire, Maytag, KitchenAid, Bosch and Electrolux.",
+      "Give us the model number when you call so the right parts can be checked before the visit.",
     ],
   },
   {
-    q: "Can I call at night or on a weekend?",
+    q: "Do you answer the phone at night and on weekends?",
     a: [
-      "Yes. The phone line is answered 24 hours a day, every day of the year.",
-      "A late-night call gets you advice on keeping the problem contained and the first open appointment, which is often early the next morning.",
+      "Yes, the line is answered around the clock, every day of the year.",
+      "A late call gets you help containing the problem tonight and the first open appointment, often early the next morning.",
     ],
   },
   {
-    q: "What should I have ready before the technician arrives?",
+    q: "Do I need to do anything before the technician arrives?",
     a: [
-      "The model and serial number, a short description of what the appliance is doing, and clear access to it.",
-      "The model tag is usually inside the fridge door frame, under the dishwasher door edge, behind the oven drawer, or on the back of a washer or dryer lid. A phone photo of it is enough.",
+      "Have the model number ready, clear a path to the appliance, and keep pets in another room.",
+      "The model tag is usually inside the fridge door frame, on the edge of the dishwasher door, behind the oven drawer, or under the washer or dryer lid. A phone photo of it is perfect.",
     ],
   },
 ];
@@ -96,118 +97,124 @@ const fmt = (n) => n.toLocaleString("en-US");
 
   <!-- 1. Hero -->
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="hero-pain">The fridge is warm, the washer is full of water, or the oven won't heat, and you need it working today.</p>
-        <h1>Same Day Appliance Repair Across the United States</h1>
-        <p class="hero-lead">
-          One call connects you with an appliance repair technician who works in your area. Refrigerators, washers, dryers, dishwashers, ovens and more, diagnosed and fixed at your home, usually the same day.
-        </p>
-        <div class="hero-action" data-callbar-trigger>
-          <a class="btn-call" href={`tel:${business.phoneHref}`}>
-            <span class="led" aria-hidden="true"></span>
-            <span>Call {business.phone}</span>
-          </a>
-          <p class="hero-micro">Tell us the appliance and what it's doing. We'll give you the earliest arrival window near you before you hang up.</p>
-        </div>
+    <div class="wrap">
+      <ul class="hero-kicker" aria-label="Common problems">
+        <li>Fridge warm?</li>
+        <li>Washer won't drain?</li>
+        <li>Oven won't heat?</li>
+      </ul>
+      <h1>Same Day Appliance Repair, Nationwide</h1>
+      <p class="hero-lead">
+        Tell us what your appliance is doing and a technician comes to your home to diagnose it and fix it, usually the same day. You hear the price before anything is touched.
+      </p>
+      <div class="hero-action" data-callbar-trigger>
+        <a class="btn-call" href={`tel:${business.phoneHref}`}>
+          <Icon name="phone" size={22} />
+          <span>Call {business.phone}</span>
+        </a>
+        <p class="hero-micro">Describe the problem in a sentence or two and you get an arrival window on the same call.</p>
       </div>
-      <div class="panel">
-        <p class="panel-title">What every call includes</p>
-        <ul class="panel-list">
-          {proof.map((p) => (
-            <li>
-              <span class="led" aria-hidden="true"></span>
-              <strong>{p.label}</strong>
-              <span class="desc">{p.desc}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul class="proof">
+        {proof.map((p) => (
+          <li>
+            <span class="tick"><Icon name="check" size={18} /></span>
+            <span><strong>{p.label}</strong><span class="desc">{p.desc}</span></span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
   <!-- 2. Problem recognition -->
   <section class="section">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Which of these is happening in your kitchen or laundry room?</h2>
-        <p>These are the problems people describe when they call us, in their own words. Every one of them is a routine repair.</p>
+      <div class="section-intro">
+        <h2>What is your appliance doing right now?</h2>
+        <p>Find the line that matches. On the right is what's usually behind it, and every one is a routine appliance repair.</p>
       </div>
-      <ul class="symptoms">
-        {symptoms.map((s, i) => (
-          <li class={i === 0 ? "symptom symptom-lead" : "symptom"}>
-            <q>{s.q}</q>
-            <p>{s.p}</p>
-          </li>
-        ))}
-      </ul>
+      <table class="symptom-table">
+        <thead>
+          <tr><th scope="col">What you're seeing</th><th scope="col">What's usually behind it</th></tr>
+        </thead>
+        <tbody>
+          {symptoms.map((row, i) => (
+            <tr class={i === 0 ? "top" : undefined}>
+              <th scope="row">{row.s}</th>
+              <td>{row.c}{row.tag && <span class="tag">{row.tag}</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   </section>
 
   <CtaBlock
-    headline="Recognize your appliance in that list?"
-    subtext="Describe the symptom on the phone and we'll match you with a technician who repairs it."
+    headline="Spotted your problem in that list?"
+    subtext="Read the line to us on the phone and we'll book the repair."
   />
 
   <!-- 3. What we do -->
-  <section class="section section-enamel">
+  <section class="section section-mist">
     <div class="wrap">
-      <div class="section-head">
-        <h2>What appliance repair do you need?</h2>
-        <p>Technicians repair the appliances that run your kitchen and laundry room, in your home, with common parts carried on the truck.</p>
+      <div class="section-intro">
+        <h2>Appliance repair for every machine in the kitchen and laundry room</h2>
+        <p>Pick yours to see the problems we fix most often on it.</p>
       </div>
-      <ul class="spec">
+      <ul class="tiles">
         {services.map((s) => (
-          <li>
-            <h3><a href={`/services/#${s.slug}`}>{s.name}</a></h3>
-            <p>{s.line}</p>
+          <li class="tile">
+            <a href={`/services/#${s.slug}`}>
+              <span class="tile-icon"><Icon name={s.slug} size={30} /></span>
+              <h3>{s.name}</h3>
+              <p>{s.line}</p>
+            </a>
           </li>
         ))}
       </ul>
-      <p class="section-foot"><a href="/services/">See how each appliance repair works, from diagnosis to the final test</a></p>
+      <p class="more-link"><a href="/services/">How our appliance repair service works, start to finish</a></p>
     </div>
   </section>
 
   <!-- 4. Why contact us -->
-  <section class="section section-ink">
+  <section class="section">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Why call us instead of searching for a repair shop yourself?</h2>
-        <p>Because you get a confirmed appointment in one call, not a voicemail chain.</p>
+      <div class="section-intro">
+        <h2>Four things you can count on when you call</h2>
+        <p>No vague promises. This is exactly what happens on every job.</p>
       </div>
-      <ul class="usps">
-        <li>
-          <p class="usp-label"><span class="led" aria-hidden="true"></span>24/7 Help</p>
-          <p>A person answers at 2 a.m. on a Sunday, tells you how to keep the leak or the warm fridge contained, and books the first opening.</p>
+      <ul class="promises">
+        <li class="promise">
+          <p class="promise-name">24/7 Help</p>
+          <p>Call at midnight or on a holiday and someone picks up, helps you stop the leak or save the food, and books the first open slot.</p>
         </li>
-        <li>
-          <p class="usp-label"><span class="led" aria-hidden="true"></span>Same Day Service</p>
-          <p>Technicians keep time open for same-day calls, so a broken fridge in the morning is often running again by evening.</p>
+        <li class="promise">
+          <p class="promise-name">Same Day Service</p>
+          <p>Time is held open every day for same-day calls. A morning call often means a working appliance that evening.</p>
         </li>
-        <li>
-          <p class="usp-label"><span class="led" aria-hidden="true"></span>Clean Work</p>
-          <p>Drop cloths go down before the appliance moves, the old parts leave with the technician, and the floor is wiped before they go.</p>
+        <li class="promise">
+          <p class="promise-name">Clean Work</p>
+          <p>Shoe covers and drop cloths go on before anything moves. Old parts and packaging leave with the technician.</p>
         </li>
-        <li>
-          <p class="usp-label"><span class="led" aria-hidden="true"></span>Upfront Pricing</p>
-          <p>After the diagnosis you get the full repair price, parts and labor together. Nothing starts until you say yes.</p>
+        <li class="promise">
+          <p class="promise-name">Upfront Pricing</p>
+          <p>Diagnosis first, then one price covering parts and labor. Nothing gets repaired until you say yes.</p>
         </li>
       </ul>
     </div>
   </section>
 
   <CtaBlock
-    headline="Want the earliest opening near you?"
-    subtext="We check technician schedules by ZIP code while you're on the line."
+    headline="Want the first opening today?"
+    subtext="The earlier you call, the better the chance of a same day visit."
   />
 
   <!-- 5. Service coverage -->
-  <section class="section">
+  <section class="section section-mist">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-intro">
         <h2>Appliance Repair by State: Find Coverage in Your Area</h2>
         <p>
-          We work with independent technicians in all 50 states and Washington, D.C. Pick your state to find your city, or see how it works on the <a href="/service-areas/">appliance repair service areas page</a>.
+          Same day appliance repair is available in all 50 states and Washington, D.C. Choose your state to find your city, or browse every <a href="/service-areas/">appliance repair service area</a>.
         </p>
       </div>
       <ul class="state-grid">
@@ -224,42 +231,43 @@ const fmt = (n) => n.toLocaleString("en-US");
   </section>
 
   <!-- 6. When to call + what to do now -->
-  <section class="section section-enamel">
-    <div class="wrap two-col">
+  <section class="section">
+    <div class="wrap split">
       <div>
-        <h2>When should you call for appliance repair?</h2>
-        <p class="answer">Call when the appliance stops doing its main job, or when anything involves water on the floor, a burning smell, or gas.</p>
-        <ul class="checks">
-          <li>The refrigerator or freezer is above 40°F (fridge) or 0°F (freezer) and climbing.</li>
-          <li>Water is pooling under the washer, dishwasher or fridge.</li>
-          <li>The dryer smells hot or the cabinet feels hotter than usual.</li>
-          <li>A gas range or oven smells of gas. Leave the house first and call the gas company, then us.</li>
-          <li>A breaker trips every time the appliance runs.</li>
-          <li>The same error code keeps coming back after a reset.</li>
+        <h2>Is it time to call for appliance repair?</h2>
+        <p class="capsule">Yes, if the appliance has stopped doing its main job, or if there's water on the floor, a burning smell, or gas.</p>
+        <ul class="signs">
+          <li><Icon name="check" size={20} /><span>The fridge is above 40°F or the freezer is above 0°F and still climbing.</span></li>
+          <li><Icon name="check" size={20} /><span>Water is pooling under the washer, dishwasher or refrigerator.</span></li>
+          <li><Icon name="check" size={20} /><span>The dryer smells hot or the cabinet is hotter than usual to the touch.</span></li>
+          <li><Icon name="check" size={20} /><span>The breaker trips every time the appliance starts.</span></li>
+          <li><Icon name="check" size={20} /><span>The same error code comes back after every reset.</span></li>
+          <li><Icon name="check" size={20} /><span>You smell gas near a range or oven. Leave the house and call the gas utility first, then call us.</span></li>
         </ul>
       </div>
-      <div class="panel-light">
+      <div class="wait">
         <h3>What to do while you wait</h3>
-        <ol class="steps">
-          <li><div><strong>Cut the power or water</strong><p>Unplug the unit or switch off its breaker. For leaks, close the supply valve behind the appliance or under the sink.</p></div></li>
-          <li><div><strong>Keep the cold in</strong><p>Keep fridge and freezer doors closed. A full freezer holds temperature for about 48 hours; a fridge for about 4.</p></div></li>
-          <li><div><strong>Find the model number</strong><p>Take a photo of the model tag so the technician can check parts before arriving.</p></div></li>
-          <li><div><strong>Clear a path</strong><p>Move what's around the appliance so it can be pulled out and reached from behind.</p></div></li>
+        <ol>
+          <li><div><strong>Turn off power or water</strong><p>Unplug it or flip its breaker. For a leak, close the supply valve behind the appliance or under the sink.</p></div></li>
+          <li><div><strong>Keep the doors shut</strong><p>A closed fridge stays cold for about 4 hours; a full freezer for about 48.</p></div></li>
+          <li><div><strong>Photograph the model tag</strong><p>It lets the technician check parts before arriving.</p></div></li>
+          <li><div><strong>Make some room</strong><p>Clear the area so the appliance can be pulled out and reached from behind.</p></div></li>
         </ol>
       </div>
     </div>
   </section>
 
   <CtaBlock
-    headline="Water on the floor or food warming up?"
-    subtext="Call now and we'll walk you through containing it while a technician is booked."
+    headline="Leak on the floor or food warming up?"
+    subtext="Call now and we'll talk you through containing it while the repair is booked."
   />
 
   <!-- 7. FAQ -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Appliance repair questions people ask before calling</h2>
+  <section class="section section-mist">
+    <div class="wrap faq-layout">
+      <div class="section-intro">
+        <h2>Appliance repair questions, answered</h2>
+        <p>Still unsure? The phone is the fastest answer: {business.phone}.</p>
       </div>
       <div class="faq">
         {faqs.map((f, i) => (
@@ -275,12 +283,15 @@ const fmt = (n) => n.toLocaleString("en-US");
   </section>
 
   <!-- 8. Final CTA -->
-  <section class="final-band">
-    <div class="wrap">
-      <h2>Get your appliance repaired today, wherever you are in the US.</h2>
-      <p>Same day service in most areas, a price you approve before work starts, and help on the phone 24 hours a day.</p>
+  <section class="final">
+    <div class="wrap final-grid">
+      <div>
+        <h2>Your appliance can be working again today.</h2>
+        <p>Same day appliance repair, a price you approve first, and a clean kitchen when we leave. Anywhere in the US, any hour.</p>
+      </div>
       <a class="final-phone" href={`tel:${business.phoneHref}`}>
-        <span class="led" aria-hidden="true"></span>{business.phone}
+        <small>Call or tap, 24/7</small>
+        <strong>{business.phone}</strong>
       </a>
     </div>
   </section>
