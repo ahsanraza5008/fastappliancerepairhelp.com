@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import StatePage from "../components/StatePage.astro";
+import states from "../data/states.json";
+import business from "../data/business.json";
+import { statePath, toParam } from "../lib/paths.js";
+import { stateContent } from "../lib/stateContent.js";
+import { breadcrumbSchema, faqSchema } from "../lib/schema.js";
+
+export function getStaticPaths() {
+  return states.map((state) => ({
+    params: { path: toParam(statePath(state)) },
+    props: { type: "state", state },
+  }));
+}
+
+const { type, state } = Astro.props;
+let metaTitle, metaDescription, schema, content, crumbs;
+if (type === "state") {
+  content = stateContent(state);
+  ({ metaTitle, metaDescription } = content);
+  crumbs = [
+    { name: "Home", url: "/" },
+    { name: "Service Areas", url: "/service-areas/" },
+    { name: state.name, url: statePath(state) },
+  ];
+  schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: business.name,
+      telephone: business.phone,
+      url: `https://${business.domain}${statePath(state)}`,
+      areaServed: { "@type": "State", name: state.name },
+    },
+    breadcrumbSchema(crumbs, business.domain),
+    faqSchema(content.faqs),
+  ];
+}
+---
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={schema}>
+  {type === "state" && <StatePage state={state} content={content} crumbs={crumbs} />}
+</Base>

@@ -50,7 +50,7 @@
     "housingStock": "huge variety, from 1920s bungalows and 1950s tract homes to newer builds, with many kitchens remodeled around older plumbing and wiring",
     "infrastructure": "planned power shutoffs during wildfire season can cut electricity for a day or more in some areas",
     "seasonalRisk": "heat waves in the Central Valley and Inland Empire spike refrigerator failures, while wildfire-season shutoffs spoil food and stress electronics",
-    "waterQuality": "water is hard across Southern California and much of the Central Valley, and softer in the Bay Area and Northern California",
+    "waterQuality": "hard water across Southern California and much of the Central Valley, and softer water in the Bay Area and Northern California",
     "nicheContext": "California appliance problems split by region: scale from hard water in the south and inland, heat-stressed refrigerators in the valleys, and surge damage after power shutoffs.",
     "regionalNotes": "many California garages hold the washer, dryer and a second fridge, so garage heat and lint-clogged vents are frequent causes of breakdowns"
   },
@@ -149,7 +149,7 @@
     "housingStock": "older brick bungalows and two-flats in Chicago and many mid-century and newer suburban homes",
     "infrastructure": "basement laundry often drains to a floor drain or laundry tub, and older homes may have tight stairways",
     "seasonalRisk": "summer thunderstorms and winter cold cause outages, and basement flooding affects washers and dryers",
-    "waterQuality": "Lake Michigan water is moderately hard, while much of central and southern Illinois has hard well water",
+    "waterQuality": "moderately hard Lake Michigan water around Chicago and hard well water across much of central and southern Illinois",
     "nicheContext": "Illinois appliance repair often happens in basements, where washers and dryers sit near floor drains and older homes have narrow access.",
     "regionalNotes": "Chicago two-flats and condos often have shared or stacked laundry setups"
   },
@@ -358,7 +358,7 @@
     "housingStock": "very old housing stock, including pre-war apartments and row houses",
     "infrastructure": "apartment kitchens and laundry rooms are tight, and building rules can limit access hours",
     "seasonalRisk": "winter storms and summer heat waves cause outages",
-    "waterQuality": "New York City water is soft, while upstate wells can be hard",
+    "waterQuality": "soft water in New York City and harder well water across much of upstate",
     "nicheContext": "New York appliance repair ranges from tight city apartments with compact appliances to upstate homes with hard well water and basement laundry.",
     "regionalNotes": "many NYC apartments have compact or built-in appliances that need specific parts"
   },

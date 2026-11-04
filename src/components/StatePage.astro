@@ -1,0 +1,113 @@
+---
+// State page body. Rendered inside Base.astro — no document-level tags here.
+import business from "../data/business.json";
+import services from "../data/services.json";
+import Breadcrumb from "./Breadcrumb.astro";
+import CtaBlock from "./CtaBlock.astro";
+import Faq from "./Faq.astro";
+import FinalBand from "./FinalBand.astro";
+import Icon from "./Icon.astro";
+const { state, content, crumbs } = Astro.props;
+const { sp, faqs, cityLinks } = content;
+const problems = [
+  { t: sp("problem_heat_title"), d: sp("problem_heat") },
+  { t: sp("problem_water_title"), d: sp("problem_water") },
+  { t: sp("problem_storm_title"), d: sp("problem_storm") },
+];
+const why = [1, 2, 3, 4].map((n) => sp(`why_${n}`));
+---
+<Breadcrumb items={crumbs} />
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>{sp("h1")}</h1>
+    <p class="page-lead">{sp("intro")}</p>
+    <div class="hero-action" data-callbar-trigger>
+      <a class="btn-call" href={`tel:${business.phoneHref}`}>
+        <Icon name="phone" size={22} />
+        <span>Call {business.phone}</span>
+      </a>
+      <p class="hero-micro">{sp("heroMicro")}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-intro">
+      <h2>{sp("problemsTitle")}</h2>
+      <p>{sp("problemsIntro")}</p>
+    </div>
+    <ul class="cards-2 three">
+      {problems.map((p) => <li><h3>{p.t}</h3><p>{p.d}</p></li>)}
+    </ul>
+  </div>
+</section>
+
+<CtaBlock headline={sp("cta1")} subtext={sp("cta1Sub")} />
+
+<section class="section section-mist">
+  <div class="wrap">
+    <div class="section-intro">
+      <h2>{sp("servicesTitle")}</h2>
+      <p>{sp("servicesIntro")}</p>
+    </div>
+    <ul class="tiles">
+      {services.map((s) => (
+        <li class="tile">
+          <a href={`/services/#${s.slug}`}>
+            <span class="tile-icon"><Icon name={s.slug} size={30} /></span>
+            <h3>{s.name}</h3>
+            <p>{sp(`service_${s.slug}`)}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <h2>{sp("whyTitle")}</h2>
+      <p class="capsule">{sp("whyIntro")}</p>
+      <ul class="signs">
+        {why.map((w) => <li><Icon name="check" size={20} /><span>{w}</span></li>)}
+      </ul>
+    </div>
+    <div class="wait">
+      <h3>{sp("localTitle")}</h3>
+      <div class="local-copy">
+        <p>{sp("local_1")}</p>
+        <p>{sp("local_2")}</p>
+        <p>{sp("local_3")}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<CtaBlock headline={sp("cta2")} subtext={sp("cta2Sub")} />
+
+<section class="section section-mist">
+  <div class="wrap">
+    <div class="section-intro">
+      <h2>{sp("citiesTitle")}</h2>
+      <p>{sp("citiesIntro")}</p>
+    </div>
+    <ul class="city-list">
+      {cityLinks.map((c) => <li><a href={c.url}>{c.city}</a></li>)}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap faq-layout">
+    <div class="section-intro">
+      <h2>Appliance Repair Questions From {state.name} Homeowners</h2>
+      <p>Not answered here? Call {business.phone}.</p>
+    </div>
+    <Faq faqs={faqs} />
+  </div>
+</section>
+
+<FinalBand headline={sp("finalTitle")} text={sp("finalText")} />
