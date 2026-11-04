@@ -1,3 +1,7 @@
 node_modules/
-dist/
+_site/
+.env
+*.log
+.claude/
+CLAUDE.md
 .astro/

@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers static-assets deploy for fastappliancerepairhelp.com (Astro static build).
+  "name": "fastappliancerepairhelp",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./_site",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

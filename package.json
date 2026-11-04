@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node --max-old-space-size=8192 node_modules/astro/bin/astro.mjs build --silent",
+    "start": "node --max-old-space-size=8192 node_modules/astro/bin/astro.mjs dev",
     "dev": "astro dev",
-    "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
