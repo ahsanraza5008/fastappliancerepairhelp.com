@@ -6,7 +6,7 @@ import business from "../data/business.json";
 import services from "../data/services.json";
 import states from "../data/states.json";
 import { statePath } from "../lib/paths.js";
-import { faqSchema } from "../lib/schema.js";
+import { graph, webPageNode, serviceNode, faqNode } from "../lib/schema.js";
 import Faq from "../components/Faq.astro";
 import FinalBand from "../components/FinalBand.astro";
 
@@ -66,18 +66,15 @@ const faqs = [
   },
 ];
 
-const orgSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: business.name,
-  telephone: business.phone,
-  url: `https://${business.domain}`,
-  areaServed: "United States",
-};
+const schema = graph([
+  webPageNode({ path: "/", name: metaTitle, description: metaDescription, hasBreadcrumb: false }),
+  serviceNode({ path: "/", name: "Same day appliance repair" }),
+  faqNode(faqs, "/"),
+]);
 
 const fmt = (n) => n.toLocaleString("en-US");
 ---
-<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[orgSchema, faqSchema(faqs)]}>
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={schema}>
 
   <!-- 1. Hero -->
   <section class="hero">

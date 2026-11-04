@@ -6,7 +6,7 @@ import CtaBlock from "../components/CtaBlock.astro";
 import FinalBand from "../components/FinalBand.astro";
 import Icon from "../components/Icon.astro";
 import business from "../data/business.json";
-import { breadcrumbSchema } from "../lib/schema.js";
+import { graph, webPageNode, serviceNode, breadcrumbNode } from "../lib/schema.js";
 
 const metaTitle = "About Our Appliance Repair Service | 24/7 Help";
 const metaDescription =
@@ -15,9 +15,12 @@ const crumbs = [
   { name: "Home", url: "/" },
   { name: "About", url: "/about/" },
 ];
-const pageSchema = { "@context": "https://schema.org", "@type": "AboutPage", name: metaTitle, url: `https://${business.domain}/about/` };
+const schema = graph([
+  webPageNode({ path: "/about/", name: metaTitle, description: metaDescription, type: "AboutPage" }),
+  breadcrumbNode(crumbs),
+]);
 ---
-<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, breadcrumbSchema(crumbs, business.domain)]}>
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={schema}>
   <Breadcrumb items={crumbs} />
   <PageHero
     title="About Our Appliance Repair Service"

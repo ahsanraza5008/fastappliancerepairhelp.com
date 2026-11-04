@@ -8,7 +8,7 @@ import FinalBand from "../../components/FinalBand.astro";
 import Icon from "../../components/Icon.astro";
 import business from "../../data/business.json";
 import services from "../../data/services.json";
-import { breadcrumbSchema, faqSchema } from "../../lib/schema.js";
+import { graph, webPageNode, serviceNode, breadcrumbNode, faqNode } from "../../lib/schema.js";
 
 const metaTitle = "Appliance Repair Services | Upfront Pricing, Same Day";
 const metaDescription =
@@ -105,20 +105,14 @@ const faqs = [
   { q: "What happens if the same problem comes back?", a: "Call us and describe what is happening. The technician comes back to check the repair.\n\nBring up any warranty questions on that call so they can be handled on the visit." },
 ];
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "Appliance repair",
-  provider: { "@type": "Organization", name: business.name, telephone: business.phone, url: `https://${business.domain}` },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Appliance repair services",
-    itemListElement: business.services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s } })),
-  },
-};
-const pageSchema = { "@context": "https://schema.org", "@type": "WebPage", name: metaTitle, url: `https://${business.domain}/services/` };
+const schema = graph([
+  webPageNode({ path: "/services/", name: metaTitle, description: metaDescription }),
+  serviceNode({ path: "/services/", name: "Appliance repair services" }),
+  breadcrumbNode(crumbs),
+  faqNode(faqs, "/services/"),
+]);
 ---
-<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, serviceSchema, breadcrumbSchema(crumbs, business.domain), faqSchema(faqs)]}>
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={schema}>
   <Breadcrumb items={crumbs} />
   <PageHero
     title="Appliance Repair Service, Process and What to Expect"

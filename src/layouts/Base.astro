@@ -3,7 +3,8 @@ import business from "../data/business.json";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const { metaTitle, metaDescription, schema = [], noindex = false } = Astro.props;
+// `schema` is one JSON-LD object (an @graph from lib/schema.js graph()), or null.
+const { metaTitle, metaDescription, schema = null, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, `https://${business.domain}`).href;
 ---
 <!doctype html>
@@ -22,7 +23,7 @@ const canonical = new URL(Astro.url.pathname, `https://${business.domain}`).href
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" />
-  {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>

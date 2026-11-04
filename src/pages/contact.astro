@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 import Icon from "../components/Icon.astro";
 import business from "../data/business.json";
-import { breadcrumbSchema } from "../lib/schema.js";
+import { graph, webPageNode, serviceNode, breadcrumbNode } from "../lib/schema.js";
 
 const metaTitle = "Contact Appliance Repair | Call 24/7 for Same Day";
 const metaDescription =
@@ -12,9 +12,12 @@ const crumbs = [
   { name: "Home", url: "/" },
   { name: "Contact", url: "/contact/" },
 ];
-const pageSchema = { "@context": "https://schema.org", "@type": "ContactPage", name: metaTitle, url: `https://${business.domain}/contact/`, telephone: business.phone };
+const schema = graph([
+  webPageNode({ path: "/contact/", name: metaTitle, description: metaDescription, type: "ContactPage" }),
+  breadcrumbNode(crumbs),
+]);
 ---
-<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, breadcrumbSchema(crumbs, business.domain)]}>
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={schema}>
   <Breadcrumb items={crumbs} />
   <section class="page-hero">
     <div class="wrap">

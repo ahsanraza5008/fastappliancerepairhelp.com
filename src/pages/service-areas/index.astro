@@ -7,7 +7,7 @@ import FinalBand from "../../components/FinalBand.astro";
 import business from "../../data/business.json";
 import states from "../../data/states.json";
 import { statePath } from "../../lib/paths.js";
-import { breadcrumbSchema } from "../../lib/schema.js";
+import { graph, webPageNode, serviceNode, breadcrumbNode } from "../../lib/schema.js";
 
 const metaTitle = "Appliance Repair Service Areas | Find Your City";
 const metaDescription =
@@ -19,9 +19,13 @@ const crumbs = [
 ];
 const total = states.reduce((n, s) => n + s.cityCount, 0);
 const fmt = (n) => n.toLocaleString("en-US");
-const pageSchema = { "@context": "https://schema.org", "@type": "WebPage", name: metaTitle, url: `https://${business.domain}/service-areas/` };
+const schema = graph([
+  webPageNode({ path: "/service-areas/", name: metaTitle, description: metaDescription, type: "CollectionPage" }),
+  serviceNode({ path: "/service-areas/", name: "Appliance repair service areas" }),
+  breadcrumbNode(crumbs),
+]);
 ---
-<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, breadcrumbSchema(crumbs, business.domain)]}>
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={schema}>
   <Breadcrumb items={crumbs} />
   <PageHero
     title="Appliance Repair Service Areas"

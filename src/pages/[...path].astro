@@ -8,7 +8,8 @@ import { cities } from "../lib/cities.js";
 import { statePath, toParam } from "../lib/paths.js";
 import { stateContent } from "../lib/stateContent.js";
 import { cityContent } from "../lib/cityContent.js";
-import { breadcrumbSchema, faqSchema } from "../lib/schema.js";
+import { graph, webPageNode, serviceNode, breadcrumbNode, faqNode, statePlace, cityPlace } from "../lib/schema.js";
+import { countyLabel } from "../lib/cityContent.js";
 
 export function getStaticPaths() {
   return [
@@ -28,18 +29,17 @@ if (type === "state") {
     { name: "Service Areas", url: "/service-areas/" },
     { name: state.name, url: statePath(state) },
   ];
-  schema = [
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: business.name,
-      telephone: business.phone,
-      url: `https://${business.domain}${statePath(state)}`,
-      areaServed: { "@type": "State", name: state.name },
-    },
-    breadcrumbSchema(crumbs, business.domain),
-    faqSchema(content.faqs),
-  ];
+  const path = statePath(state);
+  const place = statePlace(state.name);
+  schema = graph(
+    [
+      webPageNode({ path, name: metaTitle, description: metaDescription }),
+      serviceNode({ path, name: `Appliance repair in ${state.name}`, areaServed: place }),
+      breadcrumbNode(crumbs, path),
+      faqNode(content.faqs, path),
+    ],
+    { areaServed: place },
+  );
 } else {
   content = cityContent(city);
   ({ metaTitle, metaDescription } = content);
@@ -49,18 +49,17 @@ if (type === "state") {
     { name: city.stateName, url: statePath({ slug: city.stateSlug, code: city.stateCode }) },
     { name: city.city, url: city.url },
   ];
-  schema = [
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: business.name,
-      telephone: business.phone,
-      url: `https://${business.domain}${city.url}`,
-      areaServed: { "@type": "City", name: `${city.city}, ${city.stateCode}` },
-    },
-    breadcrumbSchema(crumbs, business.domain),
-    faqSchema(content.faqs),
-  ];
+  const path = city.url;
+  const place = cityPlace(city, city.stateCode === "DC" ? null : countyLabel(city).replace(/^the /, ""));
+  schema = graph(
+    [
+      webPageNode({ path, name: metaTitle, description: metaDescription }),
+      serviceNode({ path, name: `Appliance repair in ${city.city}, ${city.stateCode}`, areaServed: place }),
+      breadcrumbNode(crumbs, path),
+      faqNode(content.faqs, path),
+    ],
+    { areaServed: place },
+  );
 }
 ---
 <Base metaTitle={metaTitle} metaDescription={metaDescription} schema={schema}>

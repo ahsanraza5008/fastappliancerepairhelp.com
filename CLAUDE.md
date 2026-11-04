@@ -36,7 +36,7 @@
 - Windows local dev: if Astro fails with "Cannot find native binding" (satteri), run `npm.cmd install @bruits/satteri-wasm32-wasi@0.10.5 --force --no-save`.
 - Never say "nationwide" / "all 50 states" / "anywhere in the US" in copy, titles or meta. Use "near you" / "in your city" (or the actual city/state on location pages).
 - Sitemap: `INCLUDE_CITIES` in src/pages/sitemap.xml.js stays false until Part 2 builds city pages, then flip to true.
-- FAQ data contract: `{ q, a }` where `a` is one string; paragraphs separated by "\n\n". Render with components/Faq.astro, schema with lib/schema.js faqSchema() (same text).
+- FAQ data contract: `{ q, a }` where `a` is one string; paragraphs separated by "\n\n". Render with components/Faq.astro, schema with lib/schema.js faqNode() (paragraph breaks become one space, so schema text = rendered text).
 - cities.json generated from the skill dataset: 30,976 cities, 128 same-name collisions disambiguated with -county suffix, nearbyCities = 4 nearest in state (pre-computed).
 - Spin seeds are salted per key (`${state.code}:${key}`, city: `${stateCode}-${slug}:${key}`) so each element picks its variant independently.
 - City variants: Variant 1 lives in src/data/citySpintax.json; Variants 2..N live in src/data/city-variants/b01..b10 *.json (merged by src/lib/citySpintax.js). Paragraphs/FAQ answers = 28, short headings/CTA lines = 10–12. metaTitle/h1/metaDescription = 4 user-written patterns ([sep] token renders "|").
@@ -44,4 +44,5 @@
 - Same-name towns in a state get offset H1/title variants (lib/cityContent.js nameRank) so no H1/title is duplicated.
 - Audit after builds: page count 31,032; 0 leftover [tokens]; 0 duplicate H1/titles; FAQ schema = visible text.
 - Brand cards (src/data/brands.json): 8 "seen" variants per brand, picked per city, and card order shuffled per city (CityPage.astro).
+- Schema: ONE JSON-LD @graph per page via lib/schema.js graph(). Site-wide nodes: HomeAndConstructionBusiness (#business, LocalBusiness subtype; areaServed narrows to the State/City on location pages) + WebSite (#website). Page nodes: WebPage/AboutPage/ContactPage/CollectionPage (#webpage), Service (#service, OfferCatalog of the 8 services), BreadcrumbList (#breadcrumb), FAQPage (#faq). All URLs absolute with trailing slash (absUrl). No reviews, ratings, address, geo or prices. 404 has none. Audit script checks every page.
 - Stop for user approval at every checkpoint.
