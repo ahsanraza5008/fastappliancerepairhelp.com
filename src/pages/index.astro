@@ -6,6 +6,9 @@ import business from "../data/business.json";
 import services from "../data/services.json";
 import states from "../data/states.json";
 import { statePath } from "../lib/paths.js";
+import { faqSchema } from "../lib/schema.js";
+import Faq from "../components/Faq.astro";
+import FinalBand from "../components/FinalBand.astro";
 
 const metaTitle = "Appliance Repair Near You | Same Day, 24/7 Help";
 const metaDescription =
@@ -39,45 +42,27 @@ const symptoms = [
 const faqs = [
   {
     q: "How soon can a technician get to my home?",
-    a: [
-      "Most same day appointments go to people who call before early afternoon.",
-      "We look at the schedule for your area while you're on the phone and give you an arrival window right then. During heat waves, when refrigerators fail all at once, the first slot can slide to the next morning, and you'll know that before you hang up.",
-    ],
+    a: "Most same day appointments go to people who call before early afternoon.\n\nWe look at the schedule for your area while you're on the phone and give you an arrival window right then. During heat waves, when refrigerators fail all at once, the first slot can slide to the next morning, and you'll know that before you hang up.",
   },
   {
     q: "How much will my appliance repair cost?",
-    a: [
-      "You pay for the diagnosis plus the part and labor for the fix, and you approve the full amount before any work starts.",
-      "What moves the price most is the part. A dryer thermal fuse is inexpensive; a refrigerator compressor is not. Brand and whether the part is on hand also matter. When a repair would cost more than the appliance is worth, the technician tells you.",
-    ],
+    a: "You pay for the diagnosis plus the part and labor for the fix, and you approve the full amount before any work starts.\n\nWhat moves the price most is the part. A dryer thermal fuse is inexpensive; a refrigerator compressor is not. Brand and whether the part is on hand also matter. When a repair would cost more than the appliance is worth, the technician tells you.",
   },
   {
     q: "Is it worth fixing, or should I buy a new one?",
-    a: [
-      "If the repair costs less than half the price of a comparable new unit and the appliance is under about ten years old, fixing it usually pays off.",
-      "Sealed-system failures on older refrigerators and cracked washer tubs are the typical cases where replacing makes more sense. Because you get the price first, you decide with real numbers in hand.",
-    ],
+    a: "If the repair costs less than half the price of a comparable new unit and the appliance is under about ten years old, fixing it usually pays off.\n\nSealed-system failures on older refrigerators and cracked washer tubs are the typical cases where replacing makes more sense. Because you get the price first, you decide with real numbers in hand.",
   },
   {
     q: "Do you work on my brand?",
-    a: [
-      "Yes for most household brands, including Whirlpool, GE, Samsung, LG, Frigidaire, Maytag, KitchenAid, Bosch and Electrolux.",
-      "Give us the model number when you call so the right parts can be checked before the visit.",
-    ],
+    a: "Yes for most household brands, including Whirlpool, GE, Samsung, LG, Frigidaire, Maytag, KitchenAid, Bosch and Electrolux.\n\nGive us the model number when you call so the right parts can be checked before the visit.",
   },
   {
     q: "Do you answer the phone at night and on weekends?",
-    a: [
-      "Yes, the line is answered around the clock, every day of the year.",
-      "A late call gets you help containing the problem tonight and the first open appointment, often early the next morning.",
-    ],
+    a: "Yes, the line is answered around the clock, every day of the year.\n\nA late call gets you help containing the problem tonight and the first open appointment, often early the next morning.",
   },
   {
     q: "Do I need to do anything before the technician arrives?",
-    a: [
-      "Have the model number ready, clear a path to the appliance, and keep pets in another room.",
-      "The model tag is usually inside the fridge door frame, on the edge of the dishwasher door, behind the oven drawer, or under the washer or dryer lid. A phone photo of it is perfect.",
-    ],
+    a: "Have the model number ready, clear a path to the appliance, and keep pets in another room.\n\nThe model tag is usually inside the fridge door frame, on the edge of the dishwasher door, behind the oven drawer, or under the washer or dryer lid. A phone photo of it is perfect.",
   },
 ];
 
@@ -89,18 +74,10 @@ const orgSchema = {
   url: `https://${business.domain}`,
   areaServed: "United States",
 };
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a.join(" ") },
-  })),
-};
+
 const fmt = (n) => n.toLocaleString("en-US");
 ---
-<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[orgSchema, faqSchema]}>
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[orgSchema, faqSchema(faqs)]}>
 
   <!-- 1. Hero -->
   <section class="hero">
@@ -266,31 +243,14 @@ const fmt = (n) => n.toLocaleString("en-US");
         <h2>Appliance repair questions, answered</h2>
         <p>Still unsure? The phone is the fastest answer: {business.phone}.</p>
       </div>
-      <div class="faq">
-        {faqs.map((f, i) => (
-          <details open={i === 0}>
-            <summary><h3>{f.q}</h3></summary>
-            <div class="faq-body">
-              {f.a.map((para) => <p>{para}</p>)}
-            </div>
-          </details>
-        ))}
-      </div>
+      <Faq faqs={faqs} />
     </div>
   </section>
 
   <!-- 8. Final CTA -->
-  <section class="final">
-    <div class="wrap final-grid">
-      <div>
-        <h2>Your appliance can be working again today.</h2>
-        <p>Same day appliance repair, a price you approve first, and a clean kitchen when we leave. In your city, any hour.</p>
-      </div>
-      <a class="final-phone" href={`tel:${business.phoneHref}`}>
-        <small>Call or tap, 24/7</small>
-        <strong>{business.phone}</strong>
-      </a>
-    </div>
-  </section>
+  <FinalBand
+    headline="Your appliance can be working again today."
+    text="Same day appliance repair, a price you approve first, and a clean kitchen when we leave. In your city, any hour."
+  />
 
 </Base>

@@ -1,0 +1,72 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import CtaBlock from "../../components/CtaBlock.astro";
+import FinalBand from "../../components/FinalBand.astro";
+import business from "../../data/business.json";
+import states from "../../data/states.json";
+import { statePath } from "../../lib/paths.js";
+import { breadcrumbSchema } from "../../lib/schema.js";
+
+const metaTitle = "Appliance Repair Service Areas | Find Your City";
+const metaDescription =
+  "Find same day appliance repair in your state and city. Local technicians for refrigerators, washers, dryers and ovens, with upfront pricing. Call 24/7.";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Service Areas", url: "/service-areas/" },
+];
+const total = states.reduce((n, s) => n + s.cityCount, 0);
+const fmt = (n) => n.toLocaleString("en-US");
+const pageSchema = { "@context": "https://schema.org", "@type": "WebPage", name: metaTitle, url: `https://${business.domain}/service-areas/` };
+---
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, breadcrumbSchema(crumbs, business.domain)]}>
+  <Breadcrumb items={crumbs} />
+  <PageHero
+    title="Appliance Repair Service Areas"
+    lead={`We connect homeowners with local appliance repair technicians in ${fmt(total)} cities and towns. Pick your state below, then your city.`}
+    micro="Not sure if we cover your town? Call and give us your ZIP code."
+  />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>Choose your state</h2>
+        <p>Each state page lists every city we cover there, with local appliance repair details.</p>
+      </div>
+      <ul class="state-grid">
+        {states.map((s) => (
+          <li>
+            <a href={statePath(s)}>
+              <span class="state-name">{s.name}</span>
+              <span class="state-count">{fmt(s.cityCount)} cities</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBlock headline="Can't find your town in the list?" subtext="Call with your ZIP code and we'll check who covers your street." />
+
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>How local appliance repair service works</h2>
+        <p>One phone number, and a technician who works in your area.</p>
+      </div>
+      <ol class="process">
+        <li><h3>You call one number</h3><p>Whatever city you're in, the number is the same: {business.phone}. It's answered 24/7.</p></li>
+        <li><h3>We find a local technician</h3><p>We work with independent appliance repair technicians and match your call to one who covers your ZIP code.</p></li>
+        <li><h3>You get a time slot</h3><p>You get an arrival window on the call, usually the same day when you call early.</p></li>
+        <li><h3>Same standards everywhere</h3><p>Every repair follows the same rules: diagnosis first, price approved by you, full test and clean up.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <FinalBand
+    headline="Find appliance repair near you in one call."
+    text="Give us your ZIP code and what the appliance is doing, and get an arrival window before you hang up."
+  />
+</Base>

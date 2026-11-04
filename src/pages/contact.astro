@@ -1,0 +1,51 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import Icon from "../components/Icon.astro";
+import business from "../data/business.json";
+import { breadcrumbSchema } from "../lib/schema.js";
+
+const metaTitle = "Contact Appliance Repair | Call 24/7 for Same Day";
+const metaDescription =
+  "Call (877) 401-0234 for appliance repair near you. Phones answered 24/7, same day service, upfront pricing and clean work. Book your repair today.";
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Contact", url: "/contact/" },
+];
+const pageSchema = { "@context": "https://schema.org", "@type": "ContactPage", name: metaTitle, url: `https://${business.domain}/contact/`, telephone: business.phone };
+---
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, breadcrumbSchema(crumbs, business.domain)]}>
+  <Breadcrumb items={crumbs} />
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Contact Us for Appliance Repair</h1>
+      <p class="page-lead">The fastest way to book a repair is a phone call. Tell us the appliance and what it's doing, and you'll have an arrival window before you hang up.</p>
+      <div class="contact-grid" data-callbar-trigger>
+        <a class="big-phone" href={`tel:${business.phoneHref}`}>
+          <small>Call or tap, 24 hours a day</small>
+          <strong>{business.phone}</strong>
+          <span>Same day appointments for most calls before early afternoon.</span>
+        </a>
+        <div class="wait">
+          <h3>Have this ready when you call</h3>
+          <ul class="signs">
+            <li><Icon name="check" size={20} /><span>Your ZIP code</span></li>
+            <li><Icon name="check" size={20} /><span>The appliance type and brand</span></li>
+            <li><Icon name="check" size={20} /><span>The model number, if you can find it</span></li>
+            <li><Icon name="check" size={20} /><span>What it's doing, and any error code</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>What happens after you call</h2>
+        <p class="capsule">You get a time slot on the call. The technician arrives, diagnoses the problem and gives you a price before starting.</p>
+        <p>Nothing is repaired until you approve the price. When the job is done, the appliance is tested through a full cycle and the area is cleaned up. See how it works in more detail on our <a href="/services/">appliance repair services page</a>, or find your city on the <a href="/service-areas/">service areas page</a>.</p>
+      </div>
+    </div>
+  </section>
+</Base>

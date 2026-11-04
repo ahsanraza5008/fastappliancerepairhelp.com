@@ -3,7 +3,7 @@ import business from "../data/business.json";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const { metaTitle, metaDescription, schema = [] } = Astro.props;
+const { metaTitle, metaDescription, schema = [], noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, `https://${business.domain}`).href;
 ---
 <!doctype html>
@@ -13,7 +13,7 @@ const canonical = new URL(Astro.url.pathname, `https://${business.domain}`).href
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{metaTitle}</title>
   <meta name="description" content={metaDescription} />
-  <link rel="canonical" href={canonical} />
+  {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
   <meta property="og:title" content={metaTitle} />
   <meta property="og:description" content={metaDescription} />
   <meta property="og:url" content={canonical} />

@@ -1,0 +1,20 @@
+---
+// Compact hero for inner pages: H1, lead and a call button.
+import business from "../data/business.json";
+import Icon from "./Icon.astro";
+const { title, lead, micro } = Astro.props;
+---
+<section class="page-hero">
+  <div class="wrap">
+    <h1>{title}</h1>
+    {lead && <p class="page-lead">{lead}</p>}
+    <div class="hero-action" data-callbar-trigger>
+      <a class="btn-call" href={`tel:${business.phoneHref}`}>
+        <Icon name="phone" size={22} />
+        <span>Call {business.phone}</span>
+      </a>
+      {micro && <p class="hero-micro">{micro}</p>}
+    </div>
+    <slot />
+  </div>
+</section>

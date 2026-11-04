@@ -1,0 +1,16 @@
+---
+import business from "../data/business.json";
+const { headline, text } = Astro.props;
+---
+<section class="final">
+  <div class="wrap final-grid">
+    <div>
+      <h2>{headline}</h2>
+      <p>{text}</p>
+    </div>
+    <a class="final-phone" href={`tel:${business.phoneHref}`}>
+      <small>Call or tap, 24/7</small>
+      <strong>{business.phone}</strong>
+    </a>
+  </div>
+</section>

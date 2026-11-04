@@ -1,0 +1,68 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import CtaBlock from "../components/CtaBlock.astro";
+import FinalBand from "../components/FinalBand.astro";
+import Icon from "../components/Icon.astro";
+import business from "../data/business.json";
+import { breadcrumbSchema } from "../lib/schema.js";
+
+const metaTitle = "About Our Appliance Repair Service | 24/7 Help";
+const metaDescription =
+  "How our appliance repair service works and what we promise on every job: 24/7 help, same day service, clean work and upfront pricing. Call any time.";
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "About", url: "/about/" },
+];
+const pageSchema = { "@context": "https://schema.org", "@type": "AboutPage", name: metaTitle, url: `https://${business.domain}/about/` };
+---
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, breadcrumbSchema(crumbs, business.domain)]}>
+  <Breadcrumb items={crumbs} />
+  <PageHero
+    title="About Our Appliance Repair Service"
+    lead="We exist for one moment: when the fridge is warm, the washer is full of water or the oven won't heat, and you need someone who can fix it today."
+  />
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>What we do</h2>
+        <p class="capsule">We repair household appliances at your home: refrigerators, freezers and ice makers, washers, dryers, dishwashers, ovens and ranges, microwaves and garbage disposals.</p>
+        <p>Our focus is the repair itself. Find the real fault, fix it with the right part, test it, and leave the kitchen or laundry room the way we found it.</p>
+        <p>We also try to answer the questions people have before they call. Our <a href="/services/">appliance repair services page</a> explains how diagnosis works, what causes common failures and what affects the price.</p>
+      </div>
+      <div class="wait">
+        <h3>What you can expect on every job</h3>
+        <ul class="signs">
+          <li><Icon name="check" size={20} /><span><strong>24/7 help.</strong> The phone is answered at any hour.</span></li>
+          <li><Icon name="check" size={20} /><span><strong>Same day service.</strong> Time is kept open every day for urgent calls.</span></li>
+          <li><Icon name="check" size={20} /><span><strong>Clean work.</strong> Floors covered, old parts taken away.</span></li>
+          <li><Icon name="check" size={20} /><span><strong>Upfront pricing.</strong> One price, approved by you before work starts.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock headline="Have an appliance that needs attention?" subtext="Call and tell us what it's doing." />
+
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>How we work</h2>
+        <p>A few rules every repair follows.</p>
+      </div>
+      <ul class="cards-2">
+        <li><h3>We test before we replace</h3><p>Parts are tested with a meter and the appliance is run before anything is ordered or swapped.</p></li>
+        <li><h3>We tell you if it's not worth fixing</h3><p>If the repair costs more than the appliance is worth, you hear that before you spend anything.</p></li>
+        <li><h3>We explain what failed</h3><p>You can watch the diagnosis, and the technician shows you the failed part.</p></li>
+        <li><h3>We finish with a full cycle</h3><p>Every repaired appliance runs through a full cycle before the technician leaves.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <FinalBand
+    headline="Talk to us about your appliance."
+    text="Same day appliance repair near you, with a price you approve first. Call any hour."
+  />
+</Base>

@@ -1,0 +1,270 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import CtaBlock from "../../components/CtaBlock.astro";
+import Faq from "../../components/Faq.astro";
+import FinalBand from "../../components/FinalBand.astro";
+import Icon from "../../components/Icon.astro";
+import business from "../../data/business.json";
+import services from "../../data/services.json";
+import { breadcrumbSchema, faqSchema } from "../../lib/schema.js";
+
+const metaTitle = "Appliance Repair Services | Upfront Pricing, Same Day";
+const metaDescription =
+  "How our appliance repair works: diagnosis, repair options, cost factors and what to expect for fridges, washers, dryers and ovens near you. Call 24/7.";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Services", url: "/services/" },
+];
+
+// Deeper detail per appliance. Keys match services.json slugs (homepage tiles link to these anchors).
+const detail = {
+  "refrigerator-repair": {
+    body: "A refrigerator that stops cooling usually still runs, which is why the problem is easy to miss until the milk turns. The technician checks airflow from the freezer, the evaporator and condenser fans, the defrost system and the compressor start components before looking at anything expensive.",
+    fixes: "Evaporator and condenser fan motors, defrost heaters and thermostats, start relays, door gaskets, water inlet valves, control boards.",
+  },
+  "freezer-ice-maker-repair": {
+    body: "Freezers and ice makers fail in two ways: they stop getting cold enough, or they stop getting water. Frost patterns and the fill tube tell the technician which one it is within a few minutes.",
+    fixes: "Ice maker modules, frozen fill tubes, water inlet valves, defrost parts, freezer door seals, auger motors on in-door dispensers.",
+  },
+  "washer-repair": {
+    body: "Most washer calls come down to water not leaving, water leaking, or a door or lid that won't release. Top-loaders and front-loaders fail differently, so the technician starts from the model and the exact point in the cycle where it stops.",
+    fixes: "Drain pumps, lid switches and door locks, inlet valves, drive belts and couplers, shock absorbers, door boot seals.",
+  },
+  "dryer-repair": {
+    body: "A dryer that runs without heat is usually an electrical part on an electric dryer or an ignition part on a gas dryer. Long drying times are often the vent, so the technician checks airflow before replacing anything.",
+    fixes: "Heating elements, thermal fuses, gas igniters and valve coils, drum belts and rollers, idler pulleys, door switches.",
+  },
+  "dishwasher-repair": {
+    body: "Water left in the tub and dishes coming out dirty are the two most common dishwasher complaints, and both often start with a clogged filter or a failing pump. Error codes help, but the technician still confirms the fault by running the machine.",
+    fixes: "Drain and circulation pumps, filters, spray arms, inlet valves, door latches, float switches, heating elements.",
+  },
+  "oven-range-repair": {
+    body: "Ovens that won't heat or won't hold temperature are among the most fixable appliance problems. On gas ranges the igniter is the usual cause; on electric ranges it is the element or the temperature sensor.",
+    fixes: "Bake and broil elements, gas igniters, temperature sensors, surface burner switches, spark modules, oven control boards.",
+  },
+  "microwave-repair": {
+    body: "Microwaves store high voltage even when unplugged, so repairs need a trained technician. Over-the-range models are mounted with the cabinet above them and take two hands to remove safely.",
+    fixes: "Magnetrons, high-voltage diodes and capacitors, door switches, turntable motors, keypads, vent fans and lights.",
+  },
+  "garbage-disposal-repair": {
+    body: "A humming disposal is usually jammed, and a silent one has often tripped its reset button or lost power at the switch. Leaks are traced to the sink flange, the dishwasher inlet or the unit body.",
+    fixes: "Jams and reset faults, sink flange seals, dishwasher connections, worn or seized motors, wiring and switches.",
+  },
+};
+
+const causes = [
+  { t: "Age and normal wear", d: "Belts stretch, door gaskets harden and motors wear out. Most appliances start needing parts between years 6 and 12." },
+  { t: "Hard water and scale", d: "Minerals build up in water valves, ice makers, spray arms and heating elements, slowing water flow and causing leaks." },
+  { t: "Power surges and outages", d: "Storms and power coming back on can damage control boards and compressor start parts." },
+  { t: "Blocked airflow and vents", d: "Dusty condenser coils make a refrigerator work harder; a lint-packed vent makes a dryer overheat." },
+  { t: "Overloading", d: "Heavy loads strain washer suspensions and dryer belts, and overfilled refrigerators block air vents." },
+  { t: "Installation problems", d: "Kinked drain hoses, poorly leveled washers and crushed dryer vents cause problems that look like part failures." },
+];
+
+const options = [
+  { t: "Simple adjustment or cleaning", d: "Some calls end with no part at all: a clogged filter, a tripped reset or a kinked hose." },
+  { t: "Single part replacement", d: "The most common outcome. One failed part is replaced and the appliance is tested through a full cycle." },
+  { t: "Ordered part and a second visit", d: "If a part isn't on hand, the technician orders it and comes back to install it. You know this before agreeing to the price." },
+  { t: "Replacement makes more sense", d: "When the repair would cost more than the appliance is worth, you hear that plainly so you can decide." },
+];
+
+const steps = [
+  { t: "Your call", d: "You describe the appliance, brand and symptom. We set an arrival window, usually the same day." },
+  { t: "Arrival and inspection", d: "The technician protects the floor, looks at the appliance and asks when the problem started." },
+  { t: "Testing", d: "Parts are tested with a meter, the appliance is run, and error codes are read." },
+  { t: "Your price", d: "You get one price for parts and labor. Nothing is repaired until you approve it." },
+  { t: "Repair and full test", d: "The failed part is replaced and the appliance runs a full cycle." },
+  { t: "Clean up", d: "The area is cleaned, and the old parts and packaging leave with the technician." },
+];
+
+const factors = [
+  { t: "The part", d: "The biggest factor. A thermal fuse or door switch costs far less than a compressor, control board or motor." },
+  { t: "Brand and model", d: "Premium and built-in models often use more expensive parts that take longer to source." },
+  { t: "Appliance type", d: "Sealed refrigeration systems and built-in units take more time than a freestanding dryer." },
+  { t: "Part availability", d: "If the part has to be ordered, the repair takes two visits. How that affects the price is included in the quote you approve." },
+  { t: "Time of the visit", d: "Late-night and holiday visits can cost more than daytime appointments. You hear this before booking." },
+];
+
+const urgent = [
+  "You smell gas near a range, oven or gas dryer. Leave the house and call your gas utility first.",
+  "The refrigerator is above 40°F and food has been in it more than a few hours.",
+  "Water is spreading across the floor from the washer, dishwasher or fridge.",
+  "The dryer smells like burning or the cabinet is too hot to touch.",
+  "There are sparks inside the microwave or the oven.",
+  "A breaker trips every time the appliance starts.",
+];
+
+const faqs = [
+  { q: "Do appliance repair technicians carry parts with them?", a: "Technicians carry the parts that fail most often, such as fan motors, igniters, belts, valves and fuses.\n\nLess common parts are ordered by model number. Giving us the model number when you call raises the chance the part is on the truck." },
+  { q: "How long does a typical appliance repair take?", a: "Most repairs take 45 minutes to 2 hours once the technician is at your home.\n\nSealed-system refrigerator work and built-in appliances can take longer. The technician tells you the expected time along with the price." },
+  { q: "Is the diagnostic fee applied to the repair?", a: "The diagnostic visit and the repair are priced together, and you approve the total before work starts.\n\nIf you decide not to repair, you only pay for the diagnosis." },
+  { q: "Do you repair built-in and high-end appliances?", a: "Yes, including built-in refrigerators, wall ovens and cooktops from most major brands.\n\nSome premium brands need specific parts or tools. If your model needs a specialist, we tell you when you call." },
+  { q: "What happens if the same problem comes back?", a: "Call us and describe what is happening. The technician comes back to check the repair.\n\nBring up any warranty questions on that call so they can be handled on the visit." },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Appliance repair",
+  provider: { "@type": "Organization", name: business.name, telephone: business.phone, url: `https://${business.domain}` },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Appliance repair services",
+    itemListElement: business.services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s } })),
+  },
+};
+const pageSchema = { "@context": "https://schema.org", "@type": "WebPage", name: metaTitle, url: `https://${business.domain}/services/` };
+---
+<Base metaTitle={metaTitle} metaDescription={metaDescription} schema={[pageSchema, serviceSchema, breadcrumbSchema(crumbs, business.domain), faqSchema(faqs)]}>
+  <Breadcrumb items={crumbs} />
+  <PageHero
+    title="Appliance Repair Service, Process and What to Expect"
+    lead="When an appliance stops working, the hard part is not knowing what's wrong or what it will cost. This page walks through how a repair works, what usually causes the problem, and what affects the price."
+    micro="Know what's broken already? Skip ahead and call. We'll book the visit on the same call."
+  />
+
+  <!-- 1. Introduction -->
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Why a proper diagnosis matters</h2>
+        <p class="capsule">The same symptom can have several causes, and replacing the wrong part wastes money.</p>
+        <p>A refrigerator that isn't cooling might need an inexpensive fan motor or a new compressor. A washer that won't drain might have a sock in the pump or a failed motor. Testing the parts before replacing anything is what keeps the repair price fair.</p>
+        <p>Every visit starts with that diagnosis. Then you get one price for parts and labor, and you decide whether to go ahead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. What the service involves, per appliance -->
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>What each appliance repair involves</h2>
+        <p>What the technician looks at first, and the parts most often replaced.</p>
+      </div>
+      <ul class="service-rows">
+        {services.map((s) => (
+          <li class="service-row" id={s.slug}>
+            <span class="tile-icon"><Icon name={s.slug} size={30} /></span>
+            <div>
+              <h3>{s.name}</h3>
+              <p>{detail[s.slug].body}</p>
+              <p class="fixes"><strong>Common repairs:</strong> {detail[s.slug].fixes}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBlock headline="Found your appliance above?" subtext="Tell us the model and the symptom, and we'll check parts before the visit." />
+
+  <!-- 3. Common causes -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>What causes most appliance breakdowns?</h2>
+        <p>Most failures come from a short list of causes, and several can be prevented.</p>
+      </div>
+      <ul class="cards-2 three">
+        {causes.map((c) => <li><h3>{c.t}</h3><p>{c.d}</p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. Diagnosis -->
+  <section class="section section-mist">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>How is an appliance problem diagnosed?</h2>
+        <p class="capsule">By testing parts, not guessing. The technician checks power, reads error codes and runs the appliance.</p>
+        <p>Electrical parts like heating elements, thermal fuses, switches and sensors are tested with a meter. Motors and pumps are run and listened to. On refrigerators, temperatures are taken at several points and the frost pattern on the evaporator shows whether air or refrigerant is the problem.</p>
+        <p>You can watch, and the technician will explain what failed and why.</p>
+      </div>
+      <div class="wait">
+        <h3>Helpful things to tell us</h3>
+        <ul class="signs">
+          <li><Icon name="check" size={20} /><span>The brand and model number</span></li>
+          <li><Icon name="check" size={20} /><span>When the problem started and whether it comes and goes</span></li>
+          <li><Icon name="check" size={20} /><span>Any error code on the display</span></li>
+          <li><Icon name="check" size={20} /><span>Noises, smells or leaks you noticed</span></li>
+          <li><Icon name="check" size={20} /><span>Any recent power outage or storm</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Repair options -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>What are the repair options?</h2>
+        <p>It depends on what failed and how old the appliance is. These are the four usual outcomes.</p>
+      </div>
+      <ul class="cards-2">
+        {options.map((o) => <li><h3>{o.t}</h3><p>{o.d}</p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Process -->
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>The appliance repair process, step by step</h2>
+        <p>From your call to a working appliance.</p>
+      </div>
+      <ol class="process six">
+        {steps.map((s) => <li><h3>{s.t}</h3><p>{s.d}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBlock headline="Ready to start with step one?" subtext="Calling is step one. Most same day slots go to morning callers." />
+
+  <!-- 7. Cost -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>What affects appliance repair cost?</h2>
+        <p>The part matters more than anything else. Here is what moves the price, and you always hear it before work starts.</p>
+      </div>
+      <ul class="factor-list">
+        {factors.map((f) => <li><strong>{f.t}</strong><span>{f.d}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. Urgent -->
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>When is appliance repair urgent?</h2>
+        <p>Call right away if any of these are happening.</p>
+      </div>
+      <ul class="signs">
+        {urgent.map((u) => <li><Icon name="check" size={20} /><span>{u}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section class="section">
+    <div class="wrap faq-layout">
+      <div class="section-intro">
+        <h2>Questions about how appliance repair works</h2>
+        <p>Have a question that isn't here? Call {business.phone} and ask.</p>
+      </div>
+      <Faq faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- 10. Final CTA -->
+  <FinalBand
+    headline="Get the right appliance repair the first time."
+    text="Diagnosis first, one clear price, and a full test before the technician leaves. Call any hour."
+  />
+</Base>

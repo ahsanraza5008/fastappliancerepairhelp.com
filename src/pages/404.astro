@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import business from "../data/business.json";
+import Icon from "../components/Icon.astro";
+const metaTitle = "Page Not Found | Appliance Repair";
+const metaDescription = "This page doesn't exist. Find appliance repair near you from our homepage or service areas, or call (877) 401-0234 for same day help, 24/7.";
+---
+<Base metaTitle={metaTitle} metaDescription={metaDescription} noindex>
+  <section class="page-hero notfound">
+    <div class="wrap">
+      <h1>That page isn't here, but appliance repair is</h1>
+      <p class="page-lead">The link may be old or mistyped. Try the <a href="/">homepage</a>, our <a href="/services/">appliance repair services</a>, or find your city on the <a href="/service-areas/">service areas page</a>.</p>
+      <div class="hero-action" data-callbar-trigger>
+        <a class="btn-call" href={`tel:${business.phoneHref}`}><Icon name="phone" size={22} /><span>Call {business.phone}</span></a>
+        <p class="hero-micro">Need help now? The phone is answered 24/7.</p>
+      </div>
+    </div>
+  </section>
+</Base>

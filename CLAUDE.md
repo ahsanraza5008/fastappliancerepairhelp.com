@@ -21,7 +21,7 @@
 - citySpintax.json must be written in batches (user request) so the write never breaks.
 
 ## Build Status
-- [ ] Design approved
+- [x] Design approved
 - [ ] Part 1 complete
 - [ ] State template approved
 - [ ] City template approved
@@ -35,4 +35,7 @@
 - Content style must differ from the user's other builds: not the same copy, not the same section styling; basic section order stays.
 - Windows local dev: if Astro fails with "Cannot find native binding" (satteri), run `npm.cmd install @bruits/satteri-wasm32-wasi@0.10.5 --force --no-save`.
 - Never say "nationwide" / "all 50 states" / "anywhere in the US" in copy, titles or meta. Use "near you" / "in your city" (or the actual city/state on location pages).
+- Sitemap: `INCLUDE_CITIES` in src/pages/sitemap.xml.js stays false until Part 2 builds city pages, then flip to true.
+- FAQ data contract: `{ q, a }` where `a` is one string; paragraphs separated by "\n\n". Render with components/Faq.astro, schema with lib/schema.js faqSchema() (same text).
+- cities.json generated from the skill dataset: 30,976 cities, 128 same-name collisions disambiguated with -county suffix, nearbyCities = 4 nearest in state (pre-computed).
 - Stop for user approval at every checkpoint.

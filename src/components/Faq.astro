@@ -1,0 +1,14 @@
+---
+// Renders FAQ items with the { q, a } data contract. Paragraphs in `a` are split on blank lines.
+const { faqs = [], openFirst = true } = Astro.props;
+---
+<div class="faq">
+  {faqs.map((f, i) => (
+    <details open={openFirst && i === 0}>
+      <summary><h3>{f.q}</h3></summary>
+      <div class="faq-body">
+        {String(f.a).split("\n\n").map((para) => <p>{para}</p>)}
+      </div>
+    </details>
+  ))}
+</div>
