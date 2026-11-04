@@ -33,7 +33,8 @@ export function stateContent(state) {
     regionalNotes: ctx.regionalNotes ?? "",
   };
   const fill = (str) => String(str || "").replace(/\[(\w+)\]/g, (m, k) => (k in tokens ? tokens[k] : m));
-  const sp = (key) => fill(spin(stateSpintax[key], state.code));
+  // Seed = state.code + key, so each element picks its variant independently (deterministic per state).
+  const sp = (key) => fill(spin(stateSpintax[key], `${state.code}:${key}`));
 
   const faqs = [1, 2, 3, 4, 5].map((n) => ({ q: sp(`faq_${n}_q`), a: sp(`faq_${n}_a`) }));
   const cityLinks = [...list].sort((a, b) => a.city.localeCompare(b.city));
