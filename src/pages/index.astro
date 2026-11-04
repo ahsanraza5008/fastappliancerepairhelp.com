@@ -7,15 +7,22 @@ import services from "../data/services.json";
 import states from "../data/states.json";
 import { statePath } from "../lib/paths.js";
 
-const metaTitle = "Appliance Repair Nationwide | Same Day, 24/7 Help";
+const metaTitle = "Appliance Repair Near You | Same Day, 24/7 Help";
 const metaDescription =
-  "Same day appliance repair for refrigerators, washers, dryers, dishwashers and ovens nationwide. Upfront pricing, clean work and 24/7 help. Call today.";
+  "Same day appliance repair for refrigerators, washers, dryers, dishwashers and ovens in your city. Upfront pricing, clean work and 24/7 help. Call today.";
 
 const proof = [
   { label: "24/7 help", desc: "Nights, weekends and holidays." },
   { label: "Same day service", desc: "Call in the morning, fixed by evening in most areas." },
   { label: "Upfront pricing", desc: "One price for parts and labor, approved by you first." },
   { label: "Clean work", desc: "Floors covered, old parts and packaging taken away." },
+];
+
+const process = [
+  { t: "Call and describe it", d: "Tell us the appliance, the brand and what it's doing. A sentence or two is enough to know which parts might be needed." },
+  { t: "Get your arrival window", d: "You get a time slot before you hang up, usually the same day. The technician calls ahead when on the way." },
+  { t: "Diagnosis and your price", d: "The technician finds the fault and gives you one price for parts and labor. Nothing is repaired until you approve it." },
+  { t: "Repair, test, clean up", d: "The fix is made, the appliance is run through a full cycle in front of you, and the work area is left clean." },
 ];
 
 const symptoms = [
@@ -103,7 +110,7 @@ const fmt = (n) => n.toLocaleString("en-US");
         <li>Washer won't drain?</li>
         <li>Oven won't heat?</li>
       </ul>
-      <h1>Same Day Appliance Repair, Nationwide</h1>
+      <h1>Same Day Appliance Repair Near You</h1>
       <p class="hero-lead">
         Tell us what your appliance is doing and a technician comes to your home to diagnose it and fix it, usually the same day. You hear the price before anything is touched.
       </p>
@@ -175,31 +182,21 @@ const fmt = (n) => n.toLocaleString("en-US");
     </div>
   </section>
 
-  <!-- 4. Why contact us -->
+  <!-- 4. How it works -->
   <section class="section">
     <div class="wrap">
       <div class="section-intro">
-        <h2>Four things you can count on when you call</h2>
-        <p>No vague promises. This is exactly what happens on every job.</p>
+        <h2>How our appliance repair service works</h2>
+        <p>From your call to a working appliance, usually in the same day.</p>
       </div>
-      <ul class="promises">
-        <li class="promise">
-          <p class="promise-name">24/7 Help</p>
-          <p>Call at midnight or on a holiday and someone picks up, helps you stop the leak or save the food, and books the first open slot.</p>
-        </li>
-        <li class="promise">
-          <p class="promise-name">Same Day Service</p>
-          <p>Time is held open every day for same-day calls. A morning call often means a working appliance that evening.</p>
-        </li>
-        <li class="promise">
-          <p class="promise-name">Clean Work</p>
-          <p>Shoe covers and drop cloths go on before anything moves. Old parts and packaging leave with the technician.</p>
-        </li>
-        <li class="promise">
-          <p class="promise-name">Upfront Pricing</p>
-          <p>Diagnosis first, then one price covering parts and labor. Nothing gets repaired until you say yes.</p>
-        </li>
-      </ul>
+      <ol class="process">
+        {process.map((step) => (
+          <li>
+            <h3>{step.t}</h3>
+            <p>{step.d}</p>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 
@@ -214,7 +211,7 @@ const fmt = (n) => n.toLocaleString("en-US");
       <div class="section-intro">
         <h2>Appliance Repair by State: Find Coverage in Your Area</h2>
         <p>
-          Same day appliance repair is available in all 50 states and Washington, D.C. Choose your state to find your city, or browse every <a href="/service-areas/">appliance repair service area</a>.
+          Choose your state to find same day appliance repair in your city, or browse every <a href="/service-areas/">appliance repair service area</a>.
         </p>
       </div>
       <ul class="state-grid">
@@ -287,7 +284,7 @@ const fmt = (n) => n.toLocaleString("en-US");
     <div class="wrap final-grid">
       <div>
         <h2>Your appliance can be working again today.</h2>
-        <p>Same day appliance repair, a price you approve first, and a clean kitchen when we leave. Anywhere in the US, any hour.</p>
+        <p>Same day appliance repair, a price you approve first, and a clean kitchen when we leave. In your city, any hour.</p>
       </div>
       <a class="final-phone" href={`tel:${business.phoneHref}`}>
         <small>Call or tap, 24/7</small>

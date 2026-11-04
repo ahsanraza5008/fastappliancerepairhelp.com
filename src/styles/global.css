@@ -181,14 +181,6 @@ p { margin: 0 0 1em; }
 .tile p { margin: 0; font-size: var(--step--1); color: var(--color-ink-soft); line-height: 1.5; }
 .more-link { margin: 2rem 0 0; font-weight: 600; }
 
-/* ---------- Promises (USPs) ---------- */
-.promises { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
-@media (min-width: 48rem) { .promises { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
-.promise { padding: 1.75rem 1.6rem; border-radius: var(--radius-lg); background: var(--color-primary); color: var(--color-on-primary-soft); }
-.promise:nth-child(2), .promise:nth-child(3) { background: var(--color-primary-deep); }
-.promise-name { font-family: var(--font-heading); font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1; color: var(--color-on-primary); margin: 0 0 0.75rem; font-variation-settings: "opsz" 96; }
-.promise p:last-child { margin: 0; max-width: 30rem; }
-
 /* ---------- State grid ---------- */
 .state-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
 @media (min-width: 40rem) { .state-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -293,3 +285,36 @@ p { margin: 0 0 1em; }
   .logo-text { max-width: 8.5rem; font-size: 1rem; }
   .logo { margin-right: auto; }
 }
+
+/* Final call band: compact version (user request). */
+.final { padding: clamp(2rem, 1.5rem + 2vw, 3rem) 0; }
+.final-grid { gap: 1.25rem; }
+@media (min-width: 62rem) { .final-grid { grid-template-columns: 1.5fr auto; gap: 2.5rem; } }
+.final h2 { font-size: var(--step-3); line-height: 1.1; margin-bottom: 0.35em; }
+.final p { font-size: var(--step-0); }
+.final-phone { padding: 1rem 1.25rem; border-radius: var(--radius-md); }
+.final-phone strong { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+
+/* Mobile call bar: three-line converting button. */
+.callbar { flex-direction: column; gap: 0.1rem; padding: 0.6rem 1rem 0.7rem; line-height: 1.2; text-align: center; }
+.callbar-top { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--color-on-primary-soft); }
+.callbar-main { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; }
+.callbar-sub { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; color: var(--color-on-primary-soft); }
+
+/* ---------- How it works (process track) ---------- */
+.process { list-style: none; margin: 0; padding: 0; counter-reset: proc; display: grid; gap: 1rem; }
+@media (min-width: 48rem) { .process { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64rem) { .process { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; } }
+.process li { counter-increment: proc; position: relative; padding: 1.5rem 1.4rem; border-radius: var(--radius-lg); background: var(--color-mist); }
+@media (min-width: 64rem) {
+  .process li { border-radius: 0; background: transparent; padding: 0 1.5rem 0 0; }
+  .process li::after { content: ""; position: absolute; left: 3.6rem; right: 1rem; top: 1.5rem; border-top: 2px dashed var(--color-line); }
+  .process li:last-child::after { display: none; }
+}
+.process li::before {
+  content: counter(proc); display: grid; place-items: center; width: 3rem; height: 3rem; margin-bottom: 1rem;
+  border-radius: var(--radius-md); background: var(--color-primary); color: var(--color-on-primary);
+  font-family: var(--font-heading); font-weight: 800; font-size: 1.35rem; position: relative; z-index: 1;
+}
+.process h3 { margin: 0 0 0.4rem; }
+.process p { margin: 0; color: var(--color-ink-soft); font-size: var(--step--1); line-height: 1.55; }

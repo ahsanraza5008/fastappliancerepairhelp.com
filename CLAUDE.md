@@ -34,4 +34,5 @@
 - Write as the repair company ("we", "our technicians"). Lead-gen "we connect you with local technicians / independent network" wording is ONLY allowed on the Service Areas page, nowhere else.
 - Content style must differ from the user's other builds: not the same copy, not the same section styling; basic section order stays.
 - Windows local dev: if Astro fails with "Cannot find native binding" (satteri), run `npm.cmd install @bruits/satteri-wasm32-wasi@0.10.5 --force --no-save`.
+- Never say "nationwide" / "all 50 states" / "anywhere in the US" in copy, titles or meta. Use "near you" / "in your city" (or the actual city/state on location pages).
 - Stop for user approval at every checkpoint.

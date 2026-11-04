@@ -29,8 +29,10 @@ const canonical = new URL(Astro.url.pathname, `https://${business.domain}`).href
   <Header />
   <main id="main"><slot /></main>
   <Footer />
-  <a class="callbar is-hidden" href={`tel:${business.phoneHref}`}>
-    <span>Tap to call {business.phone}</span>
+  <a class="callbar is-hidden" href={`tel:${business.phoneHref}`} aria-label={`Call ${business.phone} for same day appliance repair`}>
+    <span class="callbar-top">Appliance broken? Get it fixed today</span>
+    <span class="callbar-main">Call {business.phone}</span>
+    <span class="callbar-sub">Price before work starts. Answered 24/7</span>
   </a>
   <script is:inline src="/assets/js/main.js" defer></script>
 </body>
