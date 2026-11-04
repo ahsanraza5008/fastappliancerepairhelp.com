@@ -43,4 +43,5 @@
 - FAQ questions are paired to answers via src/data/faqMaps.json (answer index -> question index). Keep maps in sync if variants are added/removed.
 - Same-name towns in a state get offset H1/title variants (lib/cityContent.js nameRank) so no H1/title is duplicated.
 - Audit after builds: page count 31,032; 0 leftover [tokens]; 0 duplicate H1/titles; FAQ schema = visible text.
+- Brand cards (src/data/brands.json): 8 "seen" variants per brand, picked per city, and card order shuffled per city (CityPage.astro).
 - Stop for user approval at every checkpoint.

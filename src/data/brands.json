@@ -1,17 +1,162 @@
 {
   "note": "Brand names are trademarks of their owners. We are an independent repair service, not affiliated with or authorized by these manufacturers.",
   "items": [
-    { "name": "Whirlpool", "seen": "Top-load washers that won't spin, lid locks, and fridges running nonstop" },
-    { "name": "Samsung", "seen": "Washer error codes, ice makers that freeze up, and leaking dishwashers" },
-    { "name": "LG", "seen": "Front-load door locks and boot seals, refrigerator fan motors, and dead control boards" },
-    { "name": "GE", "seen": "Top-load washers that won't agitate, glass cooktops, and refrigerators that stop cooling" },
-    { "name": "Frigidaire", "seen": "Side-by-side fridges warm on one side, washer door hinges, and beeping alarms" },
-    { "name": "Maytag", "seen": "Bravos washers that won't spin or start, clogged drains, and dishwashers not washing" },
-    { "name": "KitchenAid", "seen": "Dishwashers that won't drain, fill or run a cycle, and error codes" },
-    { "name": "Bosch", "seen": "Dishwasher E15 leak errors, drain lines, and built-in refrigerators" },
-    { "name": "Kenmore", "seen": "Washers stopped mid-cycle with water in the drum, and gas dryers" },
-    { "name": "Electrolux", "seen": "Front-load washer door latches and range problems" },
-    { "name": "Amana", "seen": "Washers, dryers and top-freezer refrigerators" },
-    { "name": "Midea", "seen": "Dishwashers with flashing lights that stop pumping water" }
-  ]
+    {
+      "name": "Whirlpool",
+      "seen": [
+        "Top-load washers that won't spin, lid locks, and fridges running nonstop",
+        "Lid lock failures, washers that won't agitate, and refrigerators that run without cooling",
+        "Duet front-loader door seals, dryer heating elements, and noisy refrigerator fans",
+        "Washer drain pumps, ice makers that stop filling, and ovens that won't heat",
+        "Fridges warm on top, washer F-codes, and dishwashers that leave water behind",
+        "Dryers that tumble without heat, stackable washers not filling, and defrost failures",
+        "Top-load washers stuck mid-cycle, refrigerator start relays, and range igniters",
+        "Cabrio and Duet washer repairs, cold dryers, and refrigerators that cycle constantly"
+      ]
+    },
+    {
+      "name": "Samsung",
+      "seen": [
+        "Washer error codes, ice makers that freeze up, and leaking dishwashers",
+        "Ice makers that ice over, front-load door locks, and fridges that stop cooling",
+        "Washers flashing 4C or DC codes, dryer heat loss, and dishwasher leaks",
+        "Refrigerator fan noise, frozen ice chutes, and washers that won't drain",
+        "French-door fridges warming up, washers shaking on spin, and dryers that won't start",
+        "Dishwashers that trip the breaker, ice maker leaks, and control board faults",
+        "Front-load washer seals, ice buildup behind fridge panels, and range touch pads",
+        "Washer spin problems, refrigerator temperature alarms, and glass cooktop repairs"
+      ]
+    },
+    {
+      "name": "LG",
+      "seen": [
+        "Front-load door locks and boot seals, refrigerator fan motors, and dead control boards",
+        "Moldy front-load gaskets, refrigerators with no cooling, and washers stuck on PE codes",
+        "Refrigerator condenser fans, washer door latches, and dishwashers that grind",
+        "Washers that stop washing, fridge compressors that won't start, and dryer belts",
+        "Ice makers that click without filling, washer drain errors, and loud fridge fans",
+        "Dryers with no heat, washer cycle dials that fail, and fridge control boards",
+        "WashTower and stacked unit repairs, refrigerator leaks, and dishwasher noise",
+        "Front-load washers shaking on spin, fridge temperature swings, and range igniters"
+      ]
+    },
+    {
+      "name": "GE",
+      "seen": [
+        "Top-load washers that won't agitate, glass cooktops, and refrigerators that stop cooling",
+        "Profile fridges warming up, electric range burners, and dryers with no heat",
+        "Dishwasher drain problems, top-load washer lid switches, and oven bake elements",
+        "Refrigerator defrost failures, washer error codes, and cracked glass cooktops",
+        "Wall oven control boards, ice maker jams, and washers that won't spin",
+        "Range surface burners, side-by-side fridges warm on one side, and dryer belts",
+        "Dishwashers that won't start, fridge water valves, and gas range igniters",
+        "Café and Profile appliance repairs, from oven sensors to refrigerator fans"
+      ]
+    },
+    {
+      "name": "Frigidaire",
+      "seen": [
+        "Side-by-side fridges warm on one side, washer door hinges, and beeping alarms",
+        "Refrigerators that beep and won't cool, front-load washer hinges, and range elements",
+        "Mini fridge repairs, side-by-side defrost failures, and stackable washer noise",
+        "Ice makers that stop, fridges with freezer cold but fresh food warm, and oven sensors",
+        "Gallery range control boards, dishwasher drain pumps, and refrigerator fans",
+        "Freezer temperature alarms, washer grinding noises, and dryers that won't heat",
+        "Upright freezer repairs, oven igniters, and fridge door seals",
+        "Stackable washer-dryer units, refrigerator start relays, and cooktop burners"
+      ]
+    },
+    {
+      "name": "Maytag",
+      "seen": [
+        "Bravos washers that won't spin or start, clogged drains, and dishwashers not washing",
+        "Top-load washers knocking on spin, dryers that won't heat, and fridge leaks",
+        "Bravos XL washers that won't turn on, clogged washer drains, and dishwasher pumps",
+        "Commercial-style washers, dryer drum rollers, and refrigerators that won't cool",
+        "Washer clogged drains, dishwashers with weak spray, and range burners",
+        "Dryer thermal fuses, washer lid locks, and refrigerator ice makers",
+        "Top-load washer transmissions, dishwasher circulation pumps, and oven elements",
+        "Washers stuck on a cycle, dryers that squeal, and fridges running warm"
+      ]
+    },
+    {
+      "name": "KitchenAid",
+      "seen": [
+        "Dishwashers that won't drain, fill or run a cycle, and error codes",
+        "Dishwashers showing F8E4 and similar codes, built-in fridges, and wall ovens",
+        "Dishwasher drain hoses, water intake problems, and refrigerator ice makers",
+        "Built-in refrigerator repairs, dishwasher deep cleaning, and range igniters",
+        "Dishwashers that smell or leave dishes dirty, and wall oven control boards",
+        "Stand-alone and built-in dishwashers, French-door fridges, and cooktops",
+        "Dishwashers not running a cycle, refrigerator water valves, and oven sensors",
+        "Dishwasher pumps and latches, built-in fridge fans, and range burners"
+      ]
+    },
+    {
+      "name": "Bosch",
+      "seen": [
+        "Dishwasher E15 leak errors, drain lines, and built-in refrigerators",
+        "Dishwashers that stop with an error code, drain pumps, and door seals",
+        "E15 and E24 dishwasher codes, built-in fridge cooling, and induction cooktops",
+        "Dishwasher drain line repairs, wall ovens, and retractable range hoods",
+        "Quiet dishwashers that suddenly won't drain, and refrigerator fan faults",
+        "Dishwasher leaks into the base, built-in fridge seals, and oven elements",
+        "Error codes on 300, 500 and 800 Series dishwashers, plus fridge repairs",
+        "Dishwasher heaters that fail, drain blockages, and cooktop controls"
+      ]
+    },
+    {
+      "name": "Kenmore",
+      "seen": [
+        "Washers stopped mid-cycle with water in the drum, and gas dryers",
+        "Elite washers that won't drain, dryers with no heat, and side-by-side fridges",
+        "Gas dryer igniters, top-load washer couplers, and refrigerator ice makers",
+        "Dishwashers that short out, washer lid switches, and fridge defrost systems",
+        "Kenmore refrigerators that won't cool, washers stuck on spin, and range burners",
+        "Older Kenmore washers and dryers, belts, pumps and motors",
+        "Chest freezers, fridge start relays, and dryers that take two cycles",
+        "Washer drain pumps, dryer drum rollers, and oven bake elements"
+      ]
+    },
+    {
+      "name": "Electrolux",
+      "seen": [
+        "Front-load washer door latches and range problems",
+        "Front-load washer door seals, induction range controls, and dryer heat",
+        "Refrigerators that warm up, washer door latches, and wall oven sensors",
+        "Dishwasher drain problems, dryer belts, and front-load washer bearings",
+        "Range igniters, washer error codes, and freezer temperature problems",
+        "Front-load washers that won't unlock, and refrigerator ice makers",
+        "Wall oven controls, dryer heating elements, and fridge fan motors",
+        "Laundry pair repairs, from door latches to drum bearings"
+      ]
+    },
+    {
+      "name": "Amana",
+      "seen": [
+        "Washers, dryers and top-freezer refrigerators",
+        "Top-load washers that won't spin, dryers with no heat, and fridges running warm",
+        "Top-freezer refrigerator defrost problems and washer drain pumps",
+        "Dryer thermal fuses, washer lid switches, and electric range elements",
+        "Budget-friendly repairs for Amana washers, dryers and fridges",
+        "Refrigerators that frost up, washers that won't agitate, and range burners",
+        "Dryer belts and rollers, fridge start relays, and dishwasher pumps",
+        "Washer couplers, refrigerator fans, and dryers that won't start"
+      ]
+    },
+    {
+      "name": "Midea",
+      "seen": [
+        "Dishwashers with flashing lights that stop pumping water",
+        "Dishwashers that stop mid-cycle, portable appliances, and fridge cooling",
+        "Dishwasher drain pumps, mini fridges, and washer control boards",
+        "Dishwashers with error lights, compact washers, and refrigerator fans",
+        "Midea dishwashers that won't drain, and freezers that won't hold temperature",
+        "Washer-dryer combos, dishwasher pumps, and refrigerator thermostats",
+        "Dishwasher delicate-cycle errors, chest freezer repairs, and microwaves",
+        "Compact refrigerators, dishwashers that beep and stop, and washer drains"
+      ]
+    }
+  ],
+  "_doc": "Each brand's 'seen' list = 8 variants; CityPage picks one per city and shuffles card order per city."
 }

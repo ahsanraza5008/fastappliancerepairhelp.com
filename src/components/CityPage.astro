@@ -11,6 +11,7 @@ import Faq from "./Faq.astro";
 import FinalBand from "./FinalBand.astro";
 import Icon from "./Icon.astro";
 import { cityPath } from "../lib/paths.js";
+import { pickIndex } from "../lib/spin.js";
 
 const { city, content, crumbs } = Astro.props;
 const { sp, faqs } = content;
@@ -43,6 +44,16 @@ const relatedParts = nearby.length >= 2
   : [relatedRaw];
 const nearbyByName = new Map(nearby.map((n) => [n.name, n]));
 const zips = city?.zips ?? [];
+
+// Brand cards: one of 8 problem lines per brand, and a per-city card order (deterministic).
+const brandSeed = `${city.stateCode}-${city.slug}`;
+const brandCards = brands.items
+  .map((b) => ({
+    name: b.name,
+    seen: Array.isArray(b.seen) ? b.seen[pickIndex(`${brandSeed}:brand:${b.name}`, b.seen.length)] : b.seen,
+    order: pickIndex(`${brandSeed}:order:${b.name}`, 1000),
+  }))
+  .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
 ---
 <Breadcrumb items={crumbs} />
 
@@ -110,7 +121,7 @@ const zips = city?.zips ?? [];
       <p>{sp("brandsIntro")}</p>
     </div>
     <ul class="brand-grid">
-      {brands.items.map((b) => (
+      {brandCards.map((b) => (
         <li>
           <h3>{b.name}</h3>
           <p>{b.seen}</p>
