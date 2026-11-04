@@ -24,7 +24,7 @@
 - [x] Design approved
 - [x] Part 1 complete
 - [x] State template approved
-- [ ] City template approved
+- [x] City template approved (brands section added after approval; awaiting user's next addition before variants)
 - [ ] All cities built
 
 ## Notes
@@ -38,5 +38,5 @@
 - Sitemap: `INCLUDE_CITIES` in src/pages/sitemap.xml.js stays false until Part 2 builds city pages, then flip to true.
 - FAQ data contract: `{ q, a }` where `a` is one string; paragraphs separated by "\n\n". Render with components/Faq.astro, schema with lib/schema.js faqSchema() (same text).
 - cities.json generated from the skill dataset: 30,976 cities, 128 same-name collisions disambiguated with -county suffix, nearbyCities = 4 nearest in state (pre-computed).
-- Spin seeds are salted per key (`${state.code}:${key}`, city: `${city.slug}:${key}`) so each element picks its variant independently.
+- Spin seeds are salted per key (`${state.code}:${key}`, city: `${stateCode}-${slug}:${key}`) so each element picks its variant independently.
 - Stop for user approval at every checkpoint.

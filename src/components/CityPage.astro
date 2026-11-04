@@ -4,6 +4,7 @@
 import business from "../data/business.json";
 import services from "../data/services.json";
 import pricing from "../data/pricing.json";
+import brands from "../data/brands.json";
 import Breadcrumb from "./Breadcrumb.astro";
 import CtaBlock from "./CtaBlock.astro";
 import Faq from "./Faq.astro";
@@ -101,11 +102,30 @@ const zips = city?.zips ?? [];
   </div>
 </section>
 
+<!-- 6b. Brands we serve -->
+<section class="section section-mist">
+  <div class="wrap">
+    <div class="section-intro">
+      <h2>{sp("brandsTitle")}</h2>
+      <p>{sp("brandsIntro")}</p>
+    </div>
+    <ul class="brand-grid">
+      {brands.items.map((b) => (
+        <li>
+          <h3>{b.name}</h3>
+          <p>{b.seen}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="brand-note">{sp("brandsCloser")} {brands.note}</p>
+  </div>
+</section>
+
 <!-- 7. CTA #2 -->
 <CtaBlock headline={sp("ctaHeadline2")} subtext={sp("ctaSub2")} />
 
 <!-- 8–9. Why choose us + process -->
-<section class="section section-mist">
+<section class="section">
   <div class="wrap split">
     <div>
       <h2>{sp("whyTitle")}</h2>
@@ -129,7 +149,7 @@ const zips = city?.zips ?? [];
 <CtaBlock headline={sp("ctaHeadline3")} subtext={sp("ctaSub3")} />
 
 <!-- 11. Pricing -->
-<section class="section">
+<section class="section section-mist">
   <div class="wrap">
     <div class="section-intro">
       <h2>{sp("pricingTitle")}</h2>
@@ -152,7 +172,7 @@ const zips = city?.zips ?? [];
 <CtaBlock headline={sp("ctaHeadline4")} subtext={sp("ctaSub4")} />
 
 <!-- 13. Local conditions -->
-<section class="section section-mist">
+<section class="section">
   <div class="wrap">
     <div class="prose">
       <h2>{sp("localTitle")}</h2>
@@ -162,7 +182,7 @@ const zips = city?.zips ?? [];
 </section>
 
 <!-- 14. FAQ -->
-<section class="section">
+<section class="section section-mist">
   <div class="wrap faq-layout">
     <div class="section-intro">
       <h2>{sp("faqTitle")}</h2>
