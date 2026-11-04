@@ -1,0 +1,11 @@
+{
+  "note": "Typical ranges reported by US appliance repair cost guides in 2026 (parts and labor). Not quotes. The exact price is given after diagnosis.",
+  "items": [
+    { "name": "Diagnostic visit", "range": "$75 – $150", "detail": "Usually credited toward the repair when you go ahead." },
+    { "name": "Washer repair", "range": "$120 – $350", "detail": "Drain pumps, lid locks and door boot seals sit at the lower end." },
+    { "name": "Refrigerator repair", "range": "$150 – $500", "detail": "Fans and defrost parts cost less; sealed-system work costs more." },
+    { "name": "Dryer repair", "range": "$100 – $300", "detail": "Thermal fuses and belts are among the cheapest repairs." },
+    { "name": "Oven and range repair", "range": "$120 – $400", "detail": "Bake elements and igniters are common; glass cooktops cost more." },
+    { "name": "Dishwasher repair", "range": "$120 – $350", "detail": "Pumps and inlet valves are the usual parts." }
+  ]
+}

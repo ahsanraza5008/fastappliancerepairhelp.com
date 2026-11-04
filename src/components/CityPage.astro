@@ -1,0 +1,210 @@
+---
+// City page body. Rendered inside Base.astro — no document-level tags here.
+// All strings come from `content` (resolved once in lib/cityContent.js).
+import business from "../data/business.json";
+import services from "../data/services.json";
+import pricing from "../data/pricing.json";
+import Breadcrumb from "./Breadcrumb.astro";
+import CtaBlock from "./CtaBlock.astro";
+import Faq from "./Faq.astro";
+import FinalBand from "./FinalBand.astro";
+import Icon from "./Icon.astro";
+import { cityPath } from "../lib/paths.js";
+
+const { city, content, crumbs } = Astro.props;
+const { sp, faqs } = content;
+
+// Services ordered by real call demand (RankLocal call data: washer 27%, fridge 24%, dryer 17%, oven 10%...).
+const demandOrder = [
+  "washer-repair", "refrigerator-repair", "dryer-repair", "oven-range-repair",
+  "dishwasher-repair", "freezer-ice-maker-repair", "microwave-repair", "garbage-disposal-repair",
+];
+const orderedServices = demandOrder.map((slug) => services.find((s) => s.slug === slug)).filter(Boolean);
+
+const usps = [
+  { label: "24/7 Help", text: sp("usp_1") },
+  { label: "Same Day Service", text: sp("usp_2") },
+  { label: "Upfront Pricing", text: sp("usp_3") },
+  { label: "Clean Work", text: sp("usp_4") },
+];
+const why = [1, 2, 3, 4, 5].map((n) => sp(`whyChooseUs_${n}`));
+const steps = [1, 2, 3, 4].map((n) => sp(`process_${n}`));
+const local = ["climate", "water", "housing", "infrastructure"].map((k) => sp(`localConditions_${k}`));
+const nearby = (city?.nearbyCities ?? []).map((n) => ({
+  name: n.city,
+  url: cityPath({ ...n, stateSlug: city.stateSlug }),
+}));
+
+// Split a sentence on [nearby1]/[nearby2] markers so those names render as links.
+const relatedRaw = sp("relatedIntro");
+const relatedParts = nearby.length >= 2
+  ? relatedRaw.split(new RegExp(`(${[nearby[0].name, nearby[1].name].map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`))
+  : [relatedRaw];
+const nearbyByName = new Map(nearby.map((n) => [n.name, n]));
+const zips = city?.zips ?? [];
+---
+<Breadcrumb items={crumbs} />
+
+<!-- 1–4. H1, intro, CTA #1, USP blocks -->
+<section class="hero city-hero">
+  <div class="wrap">
+    <h1>{sp("h1")}</h1>
+    <p class="hero-lead">{sp("aboveFoldIntro")}</p>
+    <div class="hero-action" data-callbar-trigger>
+      <a class="btn-call" href={`tel:${business.phoneHref}`}>
+        <Icon name="phone" size={22} />
+        <span>Call {business.phone}</span>
+      </a>
+      <p class="hero-micro">{sp("heroMicro")}</p>
+    </div>
+    <ul class="proof">
+      {usps.map((u) => (
+        <li>
+          <span class="tick"><Icon name="check" size={18} /></span>
+          <span><strong>{u.label}</strong><span class="desc">{u.text}</span></span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<CtaBlock headline={sp("ctaHeadline1")} subtext={sp("ctaSub1")} />
+
+<!-- 5. About -->
+<section class="section section-mist">
+  <div class="wrap">
+    <div class="prose">
+      <h2>{sp("aboutTitle")}</h2>
+      <p class="capsule">{sp("aboutUs")} <a href="/services/">{sp("aboutLinkText")}</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Services -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-intro">
+      <h2>{sp("servicesTitle")}</h2>
+      <p>{sp("servicesIntro")}</p>
+    </div>
+    <ul class="service-rows">
+      {orderedServices.map((s) => (
+        <li class="service-row">
+          <span class="tile-icon"><Icon name={s.slug} size={30} /></span>
+          <div>
+            <h3>{s.name} in {city.city}</h3>
+            <p>{sp(`service_${s.slug}`)}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- 7. CTA #2 -->
+<CtaBlock headline={sp("ctaHeadline2")} subtext={sp("ctaSub2")} />
+
+<!-- 8–9. Why choose us + process -->
+<section class="section section-mist">
+  <div class="wrap split">
+    <div>
+      <h2>{sp("whyTitle")}</h2>
+      <p class="capsule">{sp("whyChooseUsOpener")}</p>
+      <ul class="signs">
+        {why.map((w) => <li><Icon name="check" size={20} /><span>{w}</span></li>)}
+      </ul>
+    </div>
+    <div class="wait">
+      <h3>{sp("processTitle")}</h3>
+      <p class="process-note">{sp("processOpener")}</p>
+      <ol>
+        {steps.map((s) => <li><div><p class="step-text">{s}</p></div></li>)}
+      </ol>
+      <p class="process-note">{sp("processCloser")}</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CTA #3 -->
+<CtaBlock headline={sp("ctaHeadline3")} subtext={sp("ctaSub3")} />
+
+<!-- 11. Pricing -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-intro">
+      <h2>{sp("pricingTitle")}</h2>
+      <p>{sp("pricingIntro")}</p>
+    </div>
+    <ul class="price-list">
+      {pricing.items.map((p) => (
+        <li>
+          <strong>{p.name}</strong>
+          <span class="price">{p.range}</span>
+          <span class="price-detail">{p.detail}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="price-note">{sp("pricingLocal")} {pricing.note}</p>
+  </div>
+</section>
+
+<!-- 12. CTA #4 -->
+<CtaBlock headline={sp("ctaHeadline4")} subtext={sp("ctaSub4")} />
+
+<!-- 13. Local conditions -->
+<section class="section section-mist">
+  <div class="wrap">
+    <div class="prose">
+      <h2>{sp("localTitle")}</h2>
+      {local.map((p) => <p>{p}</p>)}
+    </div>
+  </div>
+</section>
+
+<!-- 14. FAQ -->
+<section class="section">
+  <div class="wrap faq-layout">
+    <div class="section-intro">
+      <h2>{sp("faqTitle")}</h2>
+      <p>Not answered here? Call {business.phone}.</p>
+    </div>
+    <Faq faqs={faqs} />
+  </div>
+</section>
+
+<!-- 15. Final CTA -->
+<FinalBand headline={sp("ctaHeadlineFinal")} text={sp("ctaFinalText")} />
+
+<!-- 16. Related cities -->
+{nearby.length > 0 && (
+  <section class="section">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>{sp("relatedTitle")}</h2>
+        <p>
+          {relatedParts.map((part) => nearbyByName.has(part)
+            ? <a href={nearbyByName.get(part).url}>appliance repair in {part}</a>
+            : part)}
+        </p>
+      </div>
+      <ul class="chip-list">
+        {nearby.map((n) => <li><a href={n.url}>Appliance repair in {n.name}, {city.stateCode}</a></li>)}
+      </ul>
+    </div>
+  </section>
+)}
+
+<!-- 17. Areas we serve (omitted when no ZIP data) -->
+{zips.length > 0 && (
+  <section class="section section-mist">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>{sp("areasTitle")}</h2>
+        <p>{sp("areasIntro")}</p>
+      </div>
+      <ul class="zip-grid">
+        {zips.map((z) => <li>{z}</li>)}
+      </ul>
+    </div>
+  </section>
+)}
